@@ -1,0 +1,23 @@
+<mat-menu #childMenu="matMenu" style="position:relative">
+  <span *ngFor="let child of menuItems; let i = index">
+    <span *ngIf="!!child.children && !!child.children.length">
+      <button mat-menu-item [matMenuTriggerFor]="menu.childMenu">
+        <mat-icon *ngIf="!!child.icon && !child.isFA">{{ child.icon }}</mat-icon>
+        <mat-icon *ngIf="!!child.icon && !!child.isFA">
+          <fa-icon [icon]="child.icon"></fa-icon>
+        </mat-icon>
+        <span>{{ child.label }}</span>
+      </button>
+      <app-menu-item #menu [menuItems]="child.children"></app-menu-item>
+    </span>
+    <span *ngIf="!child.children || child.children.length === 0">
+      <button mat-menu-item [routerLink]="child.link">
+        <mat-icon *ngIf="!!child.icon && !child.isFA">{{ child.icon }}</mat-icon>
+        <mat-icon *ngIf="!!child.icon && !!child.isFA">
+          <fa-icon [icon]="child.icon"></fa-icon>
+        </mat-icon>
+        <span>{{ child.label }}</span>
+      </button>
+    </span>
+  </span>
+</mat-menu>
