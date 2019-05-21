@@ -14,9 +14,10 @@ import { LocalStorageService } from './core/local-storage/local-storage.service'
 import { StaticPagesModule } from './static-pages/static-pages.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DynamicPagesModule } from './dynamic-pages/dynamic-pages.module';
+import { BackgroundGraphicComponent } from './background-graphic/background-graphic.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, BackgroundGraphicComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,5 +1,5 @@
 import { Router, RouterOutlet } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -19,21 +19,23 @@ import { IAnimEvent } from './core/animations/animations.models';
 export class AppComponent implements OnInit {
   ///////////////////////////////////////////
 
-  title = 'ng7-material-boilerplate';
+  title = 'catch-frontend';
+  selectedRoute = '';
 
   theme$: Observable<string>;
   localStorageState$: Observable<ILocalStorageState>;
 
+  isHomePage = false;
   isAppLoaded = false;
   isFooterHidden = false;
 
-  constructor(private localStorageService: LocalStorageService) {
+  constructor(private localStorageService: LocalStorageService, private cd: ChangeDetectorRef) {
     // Stream changes to localStorage and pipe to theme$ observable
     this.localStorageState$ = this.localStorageService.getLocalStorageStream();
     this.theme$ = this.localStorageState$.pipe(
       map((s: ILocalStorageState) => s.SiteTheme.toLowerCase())
     );
-    // Hacky, but only way found to retrigger observable AFTER component initialized
+    // Hacky, but only way found to re-trigger observable AFTER component initialized
     setTimeout(() => this.localStorageService.refreshStateStream(), 0);
   }
 
@@ -46,16 +48,25 @@ export class AppComponent implements OnInit {
       !!outletEvent.activatedRoute &&
       !!outletEvent.activatedRoute.routeConfig &&
       outletEvent.activatedRoute.routeConfig.path;
+    // Record selected route
+    this.selectedRoute = result || '';
     return result;
   }
 
+  // Trigger events on route-animation start/done
   routeChangeNotifier(animEvent: IAnimEvent) {
-    if (animEvent.phaseName === 'start') this.isFooterHidden = true;
-    if (animEvent.phaseName === 'done') this.isFooterHidden = false;
+    if (animEvent.phaseName === 'start') {
+      this.isFooterHidden = true;
+      this.isHomePage = ['', 'home', 'contact'].includes(this.selectedRoute);
+      this.cd.detectChanges();
+    }
+    if (animEvent.phaseName === 'done') {
+      this.isFooterHidden = false;
+    }
   }
 
+  // When appLoading animation is finished, declare site loaded
   appLoadingNotifier(animEvent: IAnimEvent) {
-    // When appLoading animation is finished, declare site loaded
     if (animEvent.phaseName === 'done') {
       AnimationsService.setSiteLoaded(true);
       this.isAppLoaded = true; // Controls initial footer entrance

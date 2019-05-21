@@ -1,0 +1,60 @@
+<div class="data-page-wrapper" [ngClass]="routeAnimationsElements">
+  <h1 class="main-heading">
+    <a class="temp" href="https://oort.astro.umd.edu/catch/docs">
+      Moving Object Search
+    </a>
+  </h1>
+
+  <h3 *ngIf="!data" class="main-heading">
+    Data Will Appear Here Very Soon!
+  </h3>
+
+  <div *ngIf="!!data || !true" class="data-gui">
+    <hr class="local-hr" />
+
+    <span *ngFor="let col of allColumns; let i = index">
+      <button
+        mat-raised-button
+        class="col-button"
+        (click)="addRemoveColumns(col)"
+        [color]="shownCols.includes(col) ? 'primary' : 'background'"
+      >
+        {{ col }}
+      </button>
+    </span>
+
+    <hr class="local-hr" />
+
+    <div [ngClass]="routeAnimationsElements">
+      <mat-form-field color="accent">
+        <input
+          matInput
+          type="text"
+          (keyup)="applyFilter($event.target.value)"
+          placeholder="Filter"
+          autocomplete="off"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="table-wrapper mat-elevation-z8 ">
+      <table mat-table matSort [dataSource]="data" class="data-table">
+        <!-- Loop through displayed columns -->
+        <ng-container [matColumnDef]="colvar" *ngFor="let colvar of shownCols; let j = index">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            {{ colvar }}
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element[colvar] }}
+          </td>
+        </ng-container>
+
+        <tbody>
+          <tr mat-header-row *matHeaderRowDef="shownCols"></tr>
+          <tr mat-row *matRowDef="let row; columns: shownCols"></tr>
+        </tbody>
+      </table>
+      <mat-paginator class="paginator" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+    </div>
+  </div>
+</div>

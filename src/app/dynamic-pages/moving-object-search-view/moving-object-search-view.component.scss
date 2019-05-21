@@ -1,0 +1,67 @@
+@import '../../../styles-variables';
+
+// .data-page-wrapper {
+//   min-height: calc(100vh - #{$footer-height});
+//   box-sizing: border-box;
+//   text-align: center;
+//   position: relative;
+//   padding: 100px 5%;
+//   width: 100%;
+// }
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 25px 5%;
+}
+
+h1 a,
+.temp {
+  text-decoration: none;
+  color: white;
+}
+
+.col-button {
+  margin: 2px;
+}
+
+hr {
+  border-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.filter-field {
+  color: white;
+}
+
+.mat-form-field {
+  font-size: 14px;
+}
+
+.mat-row {
+  height: auto;
+}
+
+.mat-cell {
+  padding: 10px 10px 10px 0px;
+}
+
+//
+.data-gui {
+  //
+}
+
+.table-wrapper {
+  display: inline-block;
+
+  table,
+  tr {
+    margin: auto auto;
+  }
+
+  .paginator {
+    width: 100%;
+  }
+}

@@ -1,5 +1,7 @@
 #! /bin/bash
 
+clear
+
 echo '''
 ============================
 BUILDING DEVELOPMENT BUNDLES

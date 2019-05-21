@@ -14,52 +14,58 @@ export class NavService {
       label: 'About',
       icon: 'info',
       isExpanded: false,
-      // link: 'about'
-      children: [
-        {
-          label: 'Background',
-          link: 'about',
-          isFA: true,
-          icon: 'landmark'
-        },
-        {
-          label: 'Documentation',
-          // link: 'documentation' ,
-          isFA: true,
-          icon: 'book',
-          children: [
-            {
-              label: 'Background',
-              link: 'background',
-              isFA: true,
-              icon: 'landmark'
-            },
-            {
-              label: 'Documentation',
-              link: 'docs',
-              isFA: true,
-              icon: 'book'
-            },
-            {
-              label: 'Contact',
-              link: 'contact',
-              icon: 'mail',
-              isExpanded: false
-            }
-          ]
-        },
-        {
-          label: 'Contact',
-          link: 'contact',
-          icon: 'mail',
-          isExpanded: false
-        }
-      ]
+      link: 'about'
+      // children: [
+      //   {
+      //     label: 'Background',
+      //     link: 'about',
+      //     isFA: true,
+      //     icon: 'landmark'
+      //   },
+      //   {
+      //     label: 'Documentation',
+      //     // link: 'documentation' ,
+      //     isFA: true,
+      //     icon: 'book',
+      //     children: [
+      //       {
+      //         label: 'Background',
+      //         link: 'background',
+      //         isFA: true,
+      //         icon: 'landmark'
+      //       },
+      //       {
+      //         label: 'Documentation',
+      //         link: 'docs',
+      //         isFA: true,
+      //         icon: 'book'
+      //       },
+      //       {
+      //         label: 'Contact',
+      //         link: 'contact',
+      //         icon: 'mail',
+      //         isExpanded: false
+      //       }
+      //     ]
+      //   },
+      //   {
+      //     label: 'Contact',
+      //     link: 'contact',
+      //     icon: 'mail',
+      //     isExpanded: false
+      //   }
+      // ]
     },
     {
-      label: 'Data',
-      link: 'data',
+      label: 'Search',
+      link: 'search',
       icon: 'insert_chart',
+      isExpanded: false
+    },
+    {
+      label: 'Contact',
+      link: 'contact',
+      icon: 'mail',
       isExpanded: false
     }
   ];

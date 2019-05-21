@@ -5,6 +5,7 @@ import { AboutComponent } from './static-pages/about/about.component';
 import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
 import { DocumentationComponent } from './static-pages/documentation/documentation.component';
 import { ContactComponent } from './static-pages/contact/contact.component';
+import { MovingObjectSearchViewComponent } from './dynamic-pages/moving-object-search-view/moving-object-search-view.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,11 @@ const routes: Routes = [
   {
     path: 'docs',
     component: DocumentationComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'mov',
+    component: MovingObjectSearchViewComponent,
     pathMatch: 'full'
   },
   {

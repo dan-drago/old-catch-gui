@@ -1,0 +1,50 @@
+@import '../../styles-variables';
+
+:host {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  // Add sky color to background
+  background-image: url('../../assets/images/sky.png');
+  background-size: cover;
+}
+
+img {
+  height: 100%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tint-overlay {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+//
+
+.stars-wrapper {
+  position: absolute;
+  color: #fff;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#terCanvas {
+  display: none;
+}

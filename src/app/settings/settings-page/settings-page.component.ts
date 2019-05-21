@@ -1,5 +1,5 @@
 import { MatSelectChange, MatSlideToggleChange } from '@angular/material';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ROUTE_ANIMATIONS_ELEMENTS } from '@app/core/animations/route-change.animations';
 import { LocalStorageService } from '@app/core/local-storage/local-storage.service';
@@ -15,7 +15,7 @@ import { map } from 'rxjs/operators';
   templateUrl: './settings-page.component.html',
   styleUrls: ['./settings-page.component.scss']
 })
-export class SettingsPageComponent implements OnInit {
+export class SettingsPageComponent implements AfterContentInit {
   ////////////////////////////////////////////////////
 
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
@@ -29,10 +29,13 @@ export class SettingsPageComponent implements OnInit {
     this.theme$ = this.localStorageState$.pipe(
       map((s: ILocalStorageState) => s.SiteTheme.replace('-', ' '))
     );
-    setTimeout(() => this.localStorageService.refreshStateStream(), 0);
   }
 
-  ngOnInit() {}
+  // ngOnInit() {}
+
+  ngAfterContentInit(): void {
+    setTimeout(() => this.localStorageService.refreshStateStream(), 0);
+  }
 
   onThemeSelect(event: MatSelectChange) {
     this.localStorageService.setItem('SiteTheme', event.value);

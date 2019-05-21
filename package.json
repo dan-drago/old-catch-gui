@@ -1,5 +1,5 @@
 {
-  "name": "ng7-material-boilerplate",
+  "name": "catch-gui",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -49,6 +49,7 @@
     "@angular-devkit/build-angular": "^0.13.9",
     "@angular/cli": "^7.3.9",
     "@angular/compiler-cli": "^7.2.15",
+    "@angular/http": "^7.2.15",
     "@angular/language-service": "^7.2.15",
     "@angular/pwa": "^0.13.9",
     "@types/jasmine": "~2.8.8",

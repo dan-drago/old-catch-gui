@@ -23,7 +23,7 @@
     }
 
     .main-mat-toolbar {
-      background-color: mat-color($primary);
+      background-color: rgba(mat-color($accent, darker), 0.5);
     }
 
     mat-sidenav {
@@ -39,10 +39,16 @@
       }
     }
 
-    .footer-wrapper {
-      .footer-animator {
-        background-color: mat-color($primary, darker);
-        color: mat-color($primary, lighter);
+    mat-sidenav-content {
+      main {
+        //
+      }
+
+      .footer-wrapper {
+        .footer-animator {
+          background-color: rgba(mat-color($accent, darker), 0.5);
+          // color: mat-color($primary, lighter);
+        }
       }
     }
   }

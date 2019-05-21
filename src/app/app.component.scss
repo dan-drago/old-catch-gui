@@ -31,7 +31,16 @@ mat-sidenav-container {
       z-index: 10;
     }
 
+    .main-background {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      height: 100vh;
+    }
+
     main {
+      // Positioning
       width: 100%;
       display: flex;
       flex: 1; // child will set to an equal size inside the container
@@ -69,13 +78,6 @@ mat-sidenav-container {
   footer {
     background-color: red;
   }
-
-  @media (max-width: $toolbar-breakpoint) {
-    // .content {
-    //   // margin-top: 56px !important;
-    // }
-  }
-  // }
 }
 
 mat-sidenav {

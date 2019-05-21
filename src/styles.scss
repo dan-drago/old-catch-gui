@@ -20,10 +20,18 @@
 
 // Import custom-component themes
 @import 'app/app.component.scss-theme';
+@import 'app/navigation/header/header.component.scss-theme.scss';
+@import 'app/background-graphic/background-graphic.component.scss-theme.scss';
+@import 'app/static-pages/contact/contact.component.scss-theme.scss';
+@import 'app/dynamic-pages/moving-object-search-view/moving-object-search-view.component.scss-theme.scss';
 
 // Implement custom component themes
 @mixin custom-components-theme($theme) {
   @include app-component-theme($theme);
+  @include app-header-component-theme($theme);
+  @include app-background-graphic-component-theme($theme);
+  @include app-contact-component-theme($theme);
+  @include app-moving-object-search-view-component-theme($theme);
 }
 
 .default-theme {

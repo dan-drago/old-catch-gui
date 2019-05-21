@@ -1,0 +1,34 @@
+@import '../../../styles-variables.scss';
+
+h1,
+h2,
+h3 {
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  color: white;
+}
+
+h3 {
+  margin-top: 30px;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 250px;
+  height: 50px;
+}
+
+.short-title {
+  display: none;
+}
+
+@media (max-width: map-get($grid-breakpoints, sm2)) {
+  .short-title {
+    display: block;
+  }
+  .long-title {
+    display: none;
+  }
+}
