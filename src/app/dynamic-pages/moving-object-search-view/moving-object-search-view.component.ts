@@ -1,16 +1,21 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { ROUTE_ANIMATIONS_ELEMENTS } from '@src/app/core/animations/route-change.animations';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { IMOSData } from '@src/app/core/catch-data/catch-data.models';
 import { CatchDataService } from '@src/app/core/catch-data/catch-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-moving-object-search-view',
   templateUrl: './moving-object-search-view.component.html',
   styleUrls: ['./moving-object-search-view.component.scss']
 })
-export class MovingObjectSearchViewComponent implements AfterViewInit {
+export class MovingObjectSearchViewComponent implements OnInit, AfterViewInit {
+  //////////////////////////////////////
+
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
+
+  objid: string;
 
   /**
    * These viewchild setters will be called whenever the corresponding component is rendered
@@ -57,10 +62,24 @@ export class MovingObjectSearchViewComponent implements AfterViewInit {
 
   pageSizeOptions = [5, 10, 25, 100];
 
-  constructor(private catchData: CatchDataService) {}
+  constructor(private catchData: CatchDataService, private router: Router) {
+    const navigation = this.router.getCurrentNavigation();
+    // console.log('---->>>>>', navigation);
+
+    this.objid =
+      (!!navigation &&
+        !!navigation.extras &&
+        !!navigation.extras.state &&
+        navigation.extras.state.objid) ||
+      '909';
+  }
+
+  ngOnInit(): void {}
 
   ngAfterViewInit() {
-    this.catchData.getMOVData().subscribe(
+    console.log('objid', this.objid);
+
+    this.catchData.getMOVData(this.objid).subscribe(
       (data: IMOSData[]) => {
         //
         const MAX_PAGINATION_VALUE = Math.max.apply(Math, this.pageSizeOptions);
@@ -68,6 +87,7 @@ export class MovingObjectSearchViewComponent implements AfterViewInit {
         if (data.length > MAX_PAGINATION_VALUE) {
           this.pageSizeOptions.push(data.length);
         }
+        // console.log('data', data);
         //
         this.data = new MatTableDataSource(data);
         // this.data.paginator = this.paginator;

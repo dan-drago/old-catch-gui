@@ -8,9 +8,9 @@ import {
   // MatCheckboxModule,
   // MatChipsModule,
   // MatDatepickerModule,
-  // MatDialogModule,
+  MatDialogModule,
   // MatDividerModule,
-  // MatExpansionModule,
+  MatExpansionModule,
   // MatGridListModule,
   MatIconModule,
   MatInputModule,
@@ -42,7 +42,8 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 export const materialModules = [
   MatButtonModule,
   MatCardModule,
-
+  MatDialogModule,
+  MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,

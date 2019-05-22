@@ -1,0 +1,17 @@
+<!-- <h1 mat-dialog-title>Are you sure?</h1>
+<mat-dialog-content>
+  <p>You already got {{ passedData }}%</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true">Yes</button>
+  <button mat-button [mat-dialog-close]="false">No</button>
+</mat-dialog-actions> -->
+
+<mat-dialog-content>
+  <h3>Advanced Search</h3>
+  <div class="search-content-revealer" [ngStyle]="makeAppear">
+    <div class="search-content-wrapper" #searchContent>
+      <app-search-content></app-search-content>
+    </div>
+  </div>
+</mat-dialog-content>

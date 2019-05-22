@@ -11,6 +11,13 @@ import { INav } from './navigation.models';
 export class NavService {
   readonly navLinks: INav[] = [
     {
+      label: 'Search',
+      link: 'search',
+      icon: 'search',
+      isExpanded: false
+    },
+
+    {
       label: 'About',
       icon: 'info',
       isExpanded: false,
@@ -55,12 +62,6 @@ export class NavService {
       //     isExpanded: false
       //   }
       // ]
-    },
-    {
-      label: 'Search',
-      link: 'search',
-      icon: 'insert_chart',
-      isExpanded: false
     },
     {
       label: 'Contact',

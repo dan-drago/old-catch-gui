@@ -8,6 +8,7 @@ import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { ContactComponent } from './contact/contact.component';
+import { SearchComponent } from './search/search.component';
 
 /**
  * ngx-markdown setup follows https://github.com/jfcere/ngx-markdown
@@ -31,7 +32,7 @@ export function markedOptions(): MarkedOptions {
 
 @NgModule({
   imports: [
-    SharedModule, // For Ng Material
+    SharedModule,
     HttpClientModule, // For dynamic loading of MD
 
     MarkdownModule.forRoot({
@@ -42,6 +43,12 @@ export function markedOptions(): MarkedOptions {
       }
     })
   ],
-  declarations: [AboutComponent, HomeComponent, DocumentationComponent, ContactComponent]
+  declarations: [
+    AboutComponent,
+    HomeComponent,
+    DocumentationComponent,
+    ContactComponent,
+    SearchComponent
+  ]
 })
 export class StaticPagesModule {}

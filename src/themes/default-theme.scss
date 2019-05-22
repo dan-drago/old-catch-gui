@@ -5,3 +5,4 @@ $app-accent: mat-palette($mat-blue-grey, 700, 300, 900);
 $app-warn: mat-palette($mat-red, 500);
 
 $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
+// $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);

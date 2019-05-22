@@ -5,11 +5,15 @@
     </a>
   </h1>
 
-  <h3 *ngIf="!data" class="main-heading">
+  <h2 *ngIf="!data" class="main-heading">
     Data Will Appear Here Very Soon!
+  </h2>
+
+  <h3 *ngIf="!!data && data!.data!.length === 0" class="main-heading">
+    {{ 'No Data Found For objid=' + objid }}
   </h3>
 
-  <div *ngIf="!!data || !true" class="data-gui">
+  <div *ngIf="!!data && data!.data!.length > 0" class="data-gui">
     <hr class="local-hr" />
 
     <span *ngFor="let col of allColumns; let i = index">

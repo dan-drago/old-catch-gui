@@ -1,41 +1,23 @@
-<h1 class="long-title">
+<h1 class="long-title" [ngClass]="routeAnimationsElements">
   COMET ASTEROID TERRESTRIAL CATALOG HARVESTER
 </h1>
 
-<h1 class="short-title">
+<h1 class="short-title" [ngClass]="routeAnimationsElements">
   CATCH
 </h1>
 
 <!-- <h2 class="long-title">
   SOME BANNER SLOGAN
-</h2>
+</h2> -->
 
-<h2 class="short-title">
+<!-- <h2 class="short-title">
   COMET ASTEROID TERRESTRIAL CATALOG HARVESTER
 </h2> -->
 
-<h3>
+<h3 [ngClass]="routeAnimationsElements">
   SEARCH
 </h3>
 
-<!-- <div>
-  <h2>This is the home page!</h2>
-  <p>
-    home works!
-  </p>
-  <p>
-    home works!
-  </p>
-  <p>
-    home works!
-  </p>
-  <p>
-    home works!
-  </p>
-  <p>
-    home works!
-  </p>
-  <p>
-    home works!
-  </p>
-</div> -->
+<h5 class="dialog-launcher" [ngClass]="routeAnimationsElements">
+  <u (click)="onOpen($event)">advanced</u>
+</h5>

@@ -6,6 +6,7 @@ import { SettingsPageComponent } from './settings/settings-page/settings-page.co
 import { DocumentationComponent } from './static-pages/documentation/documentation.component';
 import { ContactComponent } from './static-pages/contact/contact.component';
 import { MovingObjectSearchViewComponent } from './dynamic-pages/moving-object-search-view/moving-object-search-view.component';
+import { SearchComponent } from './static-pages/search/search.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'mov',
     component: MovingObjectSearchViewComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'search',
+    component: SearchComponent,
     pathMatch: 'full'
   },
   {

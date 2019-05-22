@@ -1,0 +1,22 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.search-content-revealer {
+  transition: height 200ms;
+  overflow: hidden;
+  height: 0px;
+}
+
+.search-content-wrapper {
+}
+
+.mat-dialog-container {
+  background-color: red !important;
+}
