@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1559083152322,
+  "timestamp": 1559083900149,
   "index": "https://dwd-umd.github.io/catch-gui/index.html",
   "assetGroups": [
     {
@@ -11,10 +11,10 @@
         "https://dwd-umd.github.io/catch-gui/es2015-polyfills.c5dd28b362270c767b34.js",
         "https://dwd-umd.github.io/catch-gui/favicon.ico",
         "https://dwd-umd.github.io/catch-gui/index.html",
-        "https://dwd-umd.github.io/catch-gui/main.cd48f5b59ad44d8c1d47.js",
+        "https://dwd-umd.github.io/catch-gui/main.3781e5cfa988e377e26b.js",
         "https://dwd-umd.github.io/catch-gui/polyfills.d37cf3df0eb92a316744.js",
         "https://dwd-umd.github.io/catch-gui/runtime.26209474bfa8dc87a77c.js",
-        "https://dwd-umd.github.io/catch-gui/styles.ffb42130f7977922d122.css",
+        "https://dwd-umd.github.io/catch-gui/styles.87baeffaae87bae2598d.css",
         "https://dwd-umd.github.io/catch-gui/vendor.5bb85b4608cfda8778b7.js"
       ],
       "patterns": []
@@ -58,13 +58,13 @@
     "https://dwd-umd.github.io/catch-gui/assets/images/sky.png": "e573a2acba627466214d3b221a97228a2e731222",
     "https://dwd-umd.github.io/catch-gui/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "https://dwd-umd.github.io/catch-gui/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://dwd-umd.github.io/catch-gui/index.html": "50048839131c6ad0fab453f81b198da3c15fb206",
+    "https://dwd-umd.github.io/catch-gui/index.html": "73c3c2b48f4824bea8980d4d376d4ca0fbfa3e6d",
     "https://dwd-umd.github.io/catch-gui/logo0.3ca308774128c19cfa4c.png": "a20e18739e67c2e691e592eaddf187e19f39adc5",
-    "https://dwd-umd.github.io/catch-gui/main.cd48f5b59ad44d8c1d47.js": "7eb2645bcb7c49875db35afd5a2385fb23baf6de",
+    "https://dwd-umd.github.io/catch-gui/main.3781e5cfa988e377e26b.js": "32f7e2dd77422a8f9760102317a1ec33613164e5",
     "https://dwd-umd.github.io/catch-gui/polyfills.d37cf3df0eb92a316744.js": "2cf5115e17552ef0ee5167674ea21962877f540c",
     "https://dwd-umd.github.io/catch-gui/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "https://dwd-umd.github.io/catch-gui/sky.748f7585ba8f4a9727c2.png": "e573a2acba627466214d3b221a97228a2e731222",
-    "https://dwd-umd.github.io/catch-gui/styles.ffb42130f7977922d122.css": "f397d0480b86894fafaf1a139b6a9925a19c0f7f",
+    "https://dwd-umd.github.io/catch-gui/styles.87baeffaae87bae2598d.css": "721b8ad6715c0c2f411632d5929107e06a3410e4",
     "https://dwd-umd.github.io/catch-gui/vendor.5bb85b4608cfda8778b7.js": "1ba7c2b90f1bfbd8a8c6b7b5a2e412a973fb9e72"
   },
   "navigationUrls": [
