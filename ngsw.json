@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1559076294151,
+  "timestamp": 1559079737497,
   "index": "https://dwd-umd.github.io/catch-gui/index.html",
   "assetGroups": [
     {
@@ -11,7 +11,7 @@
         "https://dwd-umd.github.io/catch-gui/es2015-polyfills.c5dd28b362270c767b34.js",
         "https://dwd-umd.github.io/catch-gui/favicon.ico",
         "https://dwd-umd.github.io/catch-gui/index.html",
-        "https://dwd-umd.github.io/catch-gui/main.9cae04a4ab879bd07c51.js",
+        "https://dwd-umd.github.io/catch-gui/main.5a4c0f41f493145a0d05.js",
         "https://dwd-umd.github.io/catch-gui/polyfills.d37cf3df0eb92a316744.js",
         "https://dwd-umd.github.io/catch-gui/runtime.26209474bfa8dc87a77c.js",
         "https://dwd-umd.github.io/catch-gui/styles.bf0414e93fcdff5d810d.css",
@@ -58,9 +58,9 @@
     "https://dwd-umd.github.io/catch-gui/assets/images/sky.png": "e573a2acba627466214d3b221a97228a2e731222",
     "https://dwd-umd.github.io/catch-gui/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "https://dwd-umd.github.io/catch-gui/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://dwd-umd.github.io/catch-gui/index.html": "753968014119133142762cffb816a95415461b45",
+    "https://dwd-umd.github.io/catch-gui/index.html": "5d36d504ff6745e393d23f6fc02b138d2bace0bd",
     "https://dwd-umd.github.io/catch-gui/logo0.3ca308774128c19cfa4c.png": "a20e18739e67c2e691e592eaddf187e19f39adc5",
-    "https://dwd-umd.github.io/catch-gui/main.9cae04a4ab879bd07c51.js": "571da5c79ad596008d53bb3e36f5b03c219387b1",
+    "https://dwd-umd.github.io/catch-gui/main.5a4c0f41f493145a0d05.js": "3a214ffc960df2870ada6ab430468ee1b5d5cd5a",
     "https://dwd-umd.github.io/catch-gui/polyfills.d37cf3df0eb92a316744.js": "2cf5115e17552ef0ee5167674ea21962877f540c",
     "https://dwd-umd.github.io/catch-gui/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "https://dwd-umd.github.io/catch-gui/sky.748f7585ba8f4a9727c2.png": "e573a2acba627466214d3b221a97228a2e731222",
