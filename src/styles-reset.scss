@@ -27,4 +27,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+
+  //
+  padding: env(safe-area-inset, 0px);
 }

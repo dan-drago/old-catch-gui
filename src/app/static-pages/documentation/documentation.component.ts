@@ -14,8 +14,7 @@ export class DocumentationComponent implements OnInit {
 
   docPageContent = docs;
 
-  githubReadmeUrl =
-    'https://raw.githubusercontent.com/MagnusBrzenk/ng7-material-boilerplate/master/README.md';
+  githubReadmeUrl = 'https://raw.githubusercontent.com/dwd-umd/catch-frontend/master/README.md';
 
   constructor() {}
 

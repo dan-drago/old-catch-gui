@@ -10,7 +10,13 @@ export class BackgroundGraphicComponent implements AfterViewInit {
   @Input()
   isTintShown = true;
 
-  constructor() {}
+  temp = process.env.NODE_ENV === 'prod' ? 'catch-gui/' : '';
+
+  backgroundImage = this.temp + 'assets/images/background_v1.png';
+
+  constructor() {
+    console.log('temp', this.temp);
+  }
 
   ngAfterViewInit() {
     require('./starry-sky.js');

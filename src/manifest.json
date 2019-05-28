@@ -1,11 +1,11 @@
 {
-  "name": "ng7-material-boilerplate",
-  "short_name": "ng7-material-boilerplate",
+  "name": "catch-gui",
+  "short_name": "catch-gui",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/ng7-material-boilerplate/",
+  "start_url": "/catch-gui/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",

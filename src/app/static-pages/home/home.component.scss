@@ -34,6 +34,8 @@ h3 {
   display: none;
 }
 
+// @media (max-width: 400px) {
+
 @media (max-width: map-get($grid-breakpoints, sm2)) {
   .short-title {
     display: block;
@@ -42,3 +44,12 @@ h3 {
     display: none;
   }
 }
+
+// @media only screen and (device-width: 576px) {
+//   .short-title {
+//     display: block;
+//   }
+//   .long-title {
+//     display: none;
+//   }
+// }
