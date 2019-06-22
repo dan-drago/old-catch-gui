@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1560275534349,
+  "timestamp": 1561231820252,
   "index": "https://dwd-umd.github.io/catch-gui/index.html",
   "assetGroups": [
     {
@@ -11,12 +11,12 @@
         "https://dwd-umd.github.io/catch-gui/es2015-polyfills.c5dd28b362270c767b34.js",
         "https://dwd-umd.github.io/catch-gui/favicon.ico",
         "https://dwd-umd.github.io/catch-gui/index.html",
-        "https://dwd-umd.github.io/catch-gui/main.ac4c40a9e867a5768149.js",
+        "https://dwd-umd.github.io/catch-gui/main.2d0bd544bccb5a1bfe50.js",
         "https://dwd-umd.github.io/catch-gui/polyfills.d37cf3df0eb92a316744.js",
         "https://dwd-umd.github.io/catch-gui/runtime.26209474bfa8dc87a77c.js",
-        "https://dwd-umd.github.io/catch-gui/scripts.e96a3c40e6358bc161db.js",
-        "https://dwd-umd.github.io/catch-gui/styles.28050ef0632d1d5f1419.css",
-        "https://dwd-umd.github.io/catch-gui/vendor.23578df22427e50e53cc.js"
+        "https://dwd-umd.github.io/catch-gui/scripts.572bbfa8c10df7ba1bef.js",
+        "https://dwd-umd.github.io/catch-gui/styles.717fcaedb87388ac1332.css",
+        "https://dwd-umd.github.io/catch-gui/vendor.ee1d5e4d05c369378cd7.js"
       ],
       "patterns": []
     },
@@ -285,21 +285,21 @@
     "https://dwd-umd.github.io/catch-gui/assets/scripts/js/zpipe.js": "96a0c108ae2b258d62b632590e60dec764d9ded7",
     "https://dwd-umd.github.io/catch-gui/assets/scripts/js9-allinone.css": "de511c54c5d30c14ab0e777ed69b2f453071e8e3",
     "https://dwd-umd.github.io/catch-gui/assets/scripts/js9-allinone.js": "d52312f18debb52435918620961879635d66ce31",
-    "https://dwd-umd.github.io/catch-gui/assets/scripts/js9.min.modified.js": "2004b8e63cf85faa24be2f2c9dfb50a5b0e398b7",
+    "https://dwd-umd.github.io/catch-gui/assets/scripts/js9.min.modified.js": "b5224dc8a2e9bf77133c9b1070020fe0365431ac",
     "https://dwd-umd.github.io/catch-gui/assets/scripts/js9plugins.js": "68ccdb8ace55c810ffb0ab57ba4afaf269601354",
     "https://dwd-umd.github.io/catch-gui/assets/scripts/js9prefs.js": "8d93e9dd76fcc90181fbb513405b0fe0e8fc4eb1",
     "https://dwd-umd.github.io/catch-gui/assets/scripts/js9support.min.js": "81db3b258feb15d6fb62aa68dd26a23c65fd437b",
     "https://dwd-umd.github.io/catch-gui/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "https://dwd-umd.github.io/catch-gui/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://dwd-umd.github.io/catch-gui/index.html": "fc0ff65ef4d71c18a02b1060c6c3e803bb7240bf",
+    "https://dwd-umd.github.io/catch-gui/index.html": "5660aa59205c7ccc8e5aae40565a11d3bf6a86cb",
     "https://dwd-umd.github.io/catch-gui/logo0.3ca308774128c19cfa4c.png": "a20e18739e67c2e691e592eaddf187e19f39adc5",
-    "https://dwd-umd.github.io/catch-gui/main.ac4c40a9e867a5768149.js": "4d0692d70d32757c427aa291cee00b16913b231e",
+    "https://dwd-umd.github.io/catch-gui/main.2d0bd544bccb5a1bfe50.js": "2dc00dacef8ecfb15e20fa5473a5a187897241d2",
     "https://dwd-umd.github.io/catch-gui/polyfills.d37cf3df0eb92a316744.js": "2cf5115e17552ef0ee5167674ea21962877f540c",
     "https://dwd-umd.github.io/catch-gui/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
-    "https://dwd-umd.github.io/catch-gui/scripts.e96a3c40e6358bc161db.js": "7dc8367f59fcb6eff794655f90092f46601ebe09",
+    "https://dwd-umd.github.io/catch-gui/scripts.572bbfa8c10df7ba1bef.js": "5a3c1ff2fb71e4b6d795e1641d0a5075f92c9f06",
     "https://dwd-umd.github.io/catch-gui/sky.748f7585ba8f4a9727c2.png": "e573a2acba627466214d3b221a97228a2e731222",
-    "https://dwd-umd.github.io/catch-gui/styles.28050ef0632d1d5f1419.css": "318601a03e1d991ae5fb999835a31f47c79b4477",
-    "https://dwd-umd.github.io/catch-gui/vendor.23578df22427e50e53cc.js": "9f8c3879352c7bd4c81431435a4a3084987cd10a"
+    "https://dwd-umd.github.io/catch-gui/styles.717fcaedb87388ac1332.css": "40eda50bac7f57c96fde60d47625596c5d97ff17",
+    "https://dwd-umd.github.io/catch-gui/vendor.ee1d5e4d05c369378cd7.js": "d9ae408ebaab2870b5eadfbc2b341ba8c49e6c9f"
   },
   "navigationUrls": [
     {
