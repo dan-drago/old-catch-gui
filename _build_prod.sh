@@ -17,6 +17,7 @@ if [[ $1 == "github" ]]; then
   ============================================
   '''
   BASE_HREF="https://"$GITHUB_USER_NAME".github.io/"$GITHUB_REPO_NAME"/"
+  ENV_CONFIG="prod-github"
 else
   echo '''
   =========================================
@@ -24,6 +25,7 @@ else
   =========================================
   '''
   BASE_HREF=""
+  ENV_CONFIG="prod-local"
 fi
 
 # Check to generate stats.json
@@ -43,7 +45,7 @@ if [[ $? == 0 ]]; then
   rm -rf ./dist
 
   echo ">>> Building fresh web app..."
-  NODE_ENV=prod ./node_modules/.bin/ng build --prod --aot --vendor-chunk --base-href $BASE_HREF -- $STATS
+  NODE_ENV=prod ./node_modules/.bin/ng build --prod --configuration $ENV_CONFIG --aot --vendor-chunk --base-href $BASE_HREF -- $STATS
 
 else
   printf "done :( Not all tests were succesful! See '.test_report.txt' for details."
