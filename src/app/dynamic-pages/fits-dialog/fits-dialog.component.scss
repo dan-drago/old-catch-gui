@@ -1,0 +1,128 @@
+:host {
+  position: relative;
+}
+
+.mat-dialog-content {
+  // max-height: 100vh;
+  // overflow: visible;
+  box-sizing: border-box;
+}
+
+.top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5px;
+  // background-color: rgba(255, 255, 255, 0.3);
+  .top-bar-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .show-menu-button {
+      transition: 300ms ease-in-out;
+      transform: rotate(0deg);
+      cursor: pointer;
+    }
+
+    .show-menu-button.rotated {
+      transition: 300ms ease-in-out;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////
+// Div wrapping 3 parts of JS9 GUI: menu, image, color bar
+//  top and height all determined dynamically
+//////////////////////////////////////////////////////////
+.js9-triplet-wrapper {
+  position: relative;
+  box-sizing: border-box;
+
+  // Wrapper of JS9MenuBar div
+  .JS9MenuBar-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: solid 1px white;
+  }
+
+  // Wrapper of JS9 div
+  .JS9-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: solid 1px white;
+  }
+
+  // Wrapper of JS9ColorBar div
+  .JS9ColorBar-wrapper {
+    margin-top: 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+}
+
+.opacityZero {
+  opacity: 0;
+}
+
+$trans-time: 400ms;
+.startTransitioning {
+  transition: height $trans-time ease-in-out, top $trans-time ease-in-out, opacity $trans-time;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-align: center;
+}
+
+.loading-spinner-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.JS9Colorbar {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.JS9ColorbarTextCanvas {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.JS9MenubarContainer {
+  // display: flex;
+  // justify-content: space-between;
+  padding: 0px;
+
+  span {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.JS9Button {
+  flex: 1;
+}

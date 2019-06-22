@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="Object Designation" formControlName="objid" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Seeing Limit" formControlName="seeing" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Image Sensitivity Limit" formControlName="maglimit" />
+  </mat-form-field>
+
+  <mat-action-row>
+    <button
+      mat-raised-button
+      (click)="onSubmit()"
+      [disabled]="!isFormSubmittable()"
+      [mat-dialog-close]="true"
+    >
+      Submit
+    </button>
+  </mat-action-row>
+</form>

@@ -7,6 +7,7 @@ import { DocumentationComponent } from './static-pages/documentation/documentati
 import { ContactComponent } from './static-pages/contact/contact.component';
 import { MovingObjectSearchViewComponent } from './dynamic-pages/moving-object-search-view/moving-object-search-view.component';
 import { SearchComponent } from './static-pages/search/search.component';
+import { ZtfFoundObjectSearchViewComponent } from './dynamic-pages/ztf-found-object-search-view/ztf-found-object-search-view.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'mov',
+    path: 'mos',
     component: MovingObjectSearchViewComponent,
     pathMatch: 'full'
   },
@@ -42,6 +43,11 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsPageComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'ztffos',
+    component: ZtfFoundObjectSearchViewComponent,
     pathMatch: 'full'
   },
   {

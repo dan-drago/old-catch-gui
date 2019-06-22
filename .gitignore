@@ -44,7 +44,7 @@ testem.log
 notes.md
 .explorer
 .test_report.txt
-.redundant
+.redundant/*
 
 # System Files
 .DS_Store

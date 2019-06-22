@@ -1,7 +1,7 @@
 import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { permittedThemes, ILocalStorageState } from './local-storage.models';
+import { permittedThemes, ILocalStorageState, TPermittedTheme } from './local-storage.models';
 
 type LSKey = keyof ILocalStorageState; // Define type for 'LocalStorageKeys'
 
@@ -61,6 +61,14 @@ export class LocalStorageService {
 
   removeItem(key: string) {
     localStorage.removeItem(key);
+  }
+
+  isThemeDark() {
+    const selectedTheme: TPermittedTheme = this.getItem('SiteTheme');
+    if (['DEFAULT-THEME', 'BLACK-THEME'].includes(selectedTheme)) {
+      return true;
+    }
+    return false;
   }
 
   /**

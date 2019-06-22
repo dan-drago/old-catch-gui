@@ -37,3 +37,43 @@ export interface IMOSData {
   moonillf: number;
   maglimit: number;
 }
+
+export interface IZtfFosData {
+  airmass: number;
+  archive_url: string;
+  ccdid: number;
+  ddec: number;
+  dec: number;
+  dec3sig: number;
+  delta: number;
+  dra: number;
+  expid: number;
+  fid: number;
+  field: number;
+  filefracday: number;
+  filtercode: string;
+  foundid: number;
+  infobits: number;
+  irsa_diff_url: string;
+  irsa_sci_url: string;
+  maglimit: number;
+  moonillf: number;
+  objid: number;
+  obsdate: string;
+  obsjd: number;
+  phase: number;
+  pid: number;
+  qid: number;
+  ra: number;
+  ra3sig: number;
+  rcid: number;
+  rdot: number;
+  rh: number;
+  sangle: number;
+  seeing: number;
+  selong: number;
+  tmtp: number;
+  trueanomaly: number;
+  vangle: number;
+  vmag: number;
+}

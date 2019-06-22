@@ -1,0 +1,95 @@
+<div class="data-page-wrapper" [ngClass]="routeAnimationsElements">
+  <h1 class="main-heading">
+    <a class="temp" href="https://oort.astro.umd.edu/catch/docs">
+      ZTF Found Object Search
+    </a>
+  </h1>
+
+  <h2 *ngIf="!data" class="main-heading">
+    Data Will Appear Here Very Soon!
+  </h2>
+
+  <h3 *ngIf="!!data && data!.data!.length === 0" class="main-heading">
+    {{ 'No Data Found For objid=' + objid }}
+  </h3>
+
+  <div *ngIf="!!data && data!.data!.length > 0" class="data-gui">
+    <hr class="local-hr" />
+
+    <div class="buttons-wrapper" style="display: flex; width: 100%; flex-wrap: wrap;">
+      <button
+        *ngFor="let col of allColumns; let i = index"
+        mat-raised-button
+        class="col-button"
+        (click)="addRemoveColumns(col)"
+        [matTooltip]="labels[col] && labels[col].description"
+        [color]="shownCols.includes(col) ? 'primary' : 'background'"
+      >
+        {{ labels[col] && labels[col].label }}
+      </button>
+      <button
+        mat-raised-button
+        class="col-button"
+        (click)="isAllColumnsSelected ? resetSelectedColumns() : selectAllColumns()"
+        [color]="isAllColumnsSelected ? 'background' : 'accent'"
+      >
+        {{ isAllColumnsSelected ? 'RESET' : 'SELECT ALL' }}
+      </button>
+    </div>
+
+    <hr class="local-hr" />
+
+    <div [ngClass]="routeAnimationsElements">
+      <mat-form-field color="accent">
+        <input
+          matInput
+          type="text"
+          (keyup)="applyFilter($event.target.value)"
+          placeholder="Filter"
+          autocomplete="off"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="table-wrapper-wrapper">
+      <div class="table-wrapper mat-elevation-z8 ">
+        <table mat-table matSort [dataSource]="data" class="data-table">
+          <ng-container [matColumnDef]="'imageUrl'">
+            <th class="table-cell" mat-header-cell *matHeaderCellDef mat-sort-header></th>
+            <td class="table-cell" mat-cell *matCellDef="let element">
+              <img (click)="onOpenImage($event, element)" [src]="iconUrl" />
+            </td>
+          </ng-container>
+
+          <ng-container [matColumnDef]="colvar" *ngFor="let colvar of shownCols; let j = index">
+            <th class="table-cell" mat-header-cell *matHeaderCellDef mat-sort-header>
+              <span style="white-space: nowrap;">
+                {{ labels[colvar].label }}
+              </span>
+            </th>
+            <td class="table-cell" mat-cell *matCellDef="let element">
+              <span *ngIf="true || !!element[colvar]">
+                <span
+                  *ngIf="!!element[colvar].length && element[colvar].includes('http'); else notShow"
+                >
+                  <a [href]="element[colvar]" style="white-space: nowrap;">FITS IMG</a>
+                </span>
+                <ng-template #notShow>
+                  <span style="white-space: nowrap;">
+                    {{ element[colvar] }}
+                  </span>
+                </ng-template>
+              </span>
+            </td>
+          </ng-container>
+
+          <tbody>
+            <tr mat-header-row *matHeaderRowDef="getAllCols()"></tr>
+            <tr mat-row *matRowDef="let row; columns: getAllCols()"></tr>
+          </tbody>
+        </table>
+        <mat-paginator class="paginator" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

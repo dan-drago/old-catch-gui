@@ -1,0 +1,34 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="objid" formControlName="objid" />
+    <mat-error *ngIf="form!.controls['objid'].hasError('required')">
+      Objid is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="start page" formControlName="start" />
+    <mat-error *ngIf="form!.controls['start'].hasError('validateStart')">
+      Must be a number
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="end page" formControlName="end" />
+    <mat-error *ngIf="form!.controls['end'].hasError('validateEnd')">
+      Must be a number
+    </mat-error>
+  </mat-form-field>
+
+  <mat-action-row>
+    <button
+      mat-button
+      color="primary"
+      (click)="onSubmit()"
+      [disabled]="!isFormSubmittable()"
+      [mat-dialog-close]="true"
+    >
+      Submit
+    </button>
+  </mat-action-row>
+</form>

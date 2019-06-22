@@ -22,9 +22,14 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets", "src/manifest.json"],
+            "assets": ["src/favicon.ico", "src/assets", "src/images", "src/manifest.json"],
             "styles": [{ "input": "src/styles-app-loading.scss" }, { "input": "src/styles.scss" }],
-            "scripts": [],
+            "scripts": [
+              "./src/assets/scripts/js9prefs.js",
+              "./src/assets/scripts/js9support.min.js",
+              "./src/assets/scripts/js9.min.modified.js",
+              "./src/assets/scripts/js9plugins.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

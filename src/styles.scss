@@ -18,12 +18,15 @@
 @import 'styles-reset.scss-theme';
 @import '../node_modules/normalize-scss/sass/_normalize.scss';
 
+// @import './js9-styles/js9-allinone.scss';
+
 // Import custom-component themes
 @import 'app/app.component.scss-theme';
 @import 'app/navigation/header/header.component.scss-theme.scss';
 @import 'app/background-graphic/background-graphic.component.scss-theme.scss';
 @import 'app/static-pages/contact/contact.component.scss-theme.scss';
 @import 'app/dynamic-pages/moving-object-search-view/moving-object-search-view.component.scss-theme.scss';
+@import 'app/dynamic-pages/ztf-found-object-search-view/ztf-found-object-search-view.component.scss-theme.scss';
 
 // Implement custom component themes
 @mixin custom-components-theme($theme) {
@@ -32,6 +35,7 @@
   @include app-background-graphic-component-theme($theme);
   @include app-contact-component-theme($theme);
   @include app-moving-object-search-view-component-theme($theme);
+  @include app-ztf-found-object-search-view-component-theme($theme);
 }
 
 .default-theme {

@@ -1,0 +1,75 @@
+<mat-dialog-content>
+  <div class="top-bar">
+    <div class="top-bar-item" style="justify-content: flex-start;">
+      <h5>{{ 'OBJID ' + passedData.objid }}</h5>
+    </div>
+    <div class="top-bar-item">
+      <mat-icon
+        class="show-menu-button"
+        [ngClass]="{ rotated: !!isMenuShown }"
+        matTooltip="Reveal FITS-Viewer Menu"
+        (click)="toggleMenuBar()"
+      >
+        expand_more
+      </mat-icon>
+    </div>
+    <div class="top-bar-item" style="justify-content: flex-end;">
+      <mat-icon class="show-menu-button" matTooltip="Expanded view not ready yet">
+        open_in_new
+      </mat-icon>
+    </div>
+  </div>
+
+  <div #js9TripletRef class="js9-triplet-wrapper" [ngStyle]="getJS9TripletStyle()">
+    <div
+      class="JS9-wrapper"
+      [ngClass]="{ opacityZero: !!isLoading, startTransitioning: !isLoading }"
+      [ngStyle]="{
+        height: 'calc(' + js9WrapperHeight + ' - ' + js9MenuBarWrapperHeight + ')',
+        top: js9MenuBarWrapperHeight
+      }"
+    >
+      <div
+        #js9Ref
+        [class]="JS9"
+        [id]="uid"
+        [attr.data-width]="js9Width"
+        [attr.data-height]="js9WrapperHeight"
+      ></div>
+    </div>
+    <div
+      class="JS9MenuBar-wrapper"
+      [ngClass]="{ opacityZero: !!isLoading, startTransitioning: !isLoading }"
+      [ngStyle]="{ height: js9MenuBarWrapperHeight, top: '0px' }"
+    >
+      <div
+        #js9MenuRef
+        [id]="uid + 'Menubar'"
+        [class]="JS9Menubar"
+        [attr.data-width]="js9Width"
+        data-style="mac"
+        data-usermenus="true"
+      ></div>
+    </div>
+    <div
+      class="JS9ColorBar-wrapper"
+      [ngClass]="{ opacityZero: !!isLoading, startTransitioning: !isLoading }"
+      [ngStyle]="{
+        height: js9ColorBarWrapperHeight,
+        top: js9WrapperHeight
+      }"
+    >
+      <div
+        #js9ColorBarRef
+        [class]="JS9Colorbar"
+        style="background-color: rgba(0,0,0,0); line-height: 0px;"
+        [id]="uid + 'Colorbar'"
+        [attr.data-width]="js9Width"
+      ></div>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-spinner-wrapper">
+    <mat-spinner></mat-spinner>
+  </div>
+</mat-dialog-content>

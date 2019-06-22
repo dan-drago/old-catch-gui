@@ -3,7 +3,7 @@ import {
   // MatBadgeModule,
   // MatBottomSheetModule,
   MatButtonModule,
-  // MatButtonToggleModule,
+  MatButtonToggleModule,
   MatCardModule,
   // MatCheckboxModule,
   // MatChipsModule,
@@ -19,7 +19,7 @@ import {
   // MatNativeDateModule,
   MatPaginatorModule,
   // MatProgressBarModule,
-  // MatProgressSpinnerModule,
+  MatProgressSpinnerModule,
   // MatRadioModule,
   // MatRippleModule,
   MatSelectModule,
@@ -27,12 +27,12 @@ import {
   // MatSliderModule,
   MatSlideToggleModule,
   // MatSnackBarModule,
-  // MatSortModule,
+  MatSortModule,
   // MatStepperModule,
   MatTableModule,
   // MatTabsModule,
   MatToolbarModule,
-  // MatTooltipModule,
+  MatTooltipModule,
   // MatTreeModule,
   // MatFormField,
   MatFormFieldModule
@@ -41,6 +41,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 
 export const materialModules = [
   MatButtonModule,
+  MatButtonToggleModule,
   MatCardModule,
   MatDialogModule,
   MatExpansionModule,
@@ -50,11 +51,14 @@ export const materialModules = [
   MatListModule,
   MatMenuModule,
   MatPaginatorModule,
+  MatProgressSpinnerModule,
   MatSelectModule,
   MatSidenavModule,
   MatSlideToggleModule,
+  MatSortModule,
   MatTableModule,
   MatToolbarModule,
+  MatTooltipModule,
   //
   TextFieldModule
 ];

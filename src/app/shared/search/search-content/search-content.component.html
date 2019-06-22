@@ -5,82 +5,18 @@
         <mat-panel-title>
           Moving Object Search
         </mat-panel-title>
-        <!-- <mat-panel-description>
-        </mat-panel-description> -->
       </mat-expansion-panel-header>
 
-      <form [formGroup]="form" (ngSubmit)="onMOV()">
-        <mat-form-field>
-          <input matInput placeholder="objid" formControlName="objid" />
-          <mat-error *ngIf="form!.controls['objid'].hasError('required')">
-            Objid is required
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput placeholder="start page" formControlName="start" />
-          <mat-error *ngIf="form!.controls['start'].hasError('validateStart')">
-            Must be a number
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput placeholder="end page" formControlName="end" />
-          <mat-error *ngIf="form!.controls['end'].hasError('validateEnd')">
-            Must be a number
-          </mat-error>
-        </mat-form-field>
-
-        <mat-action-row>
-          <button
-            mat-button
-            color="primary"
-            (click)="onMOV()"
-            [disabled]="!isFormSubmittable()"
-            [mat-dialog-close]="true"
-          >
-            Submit
-          </button>
-        </mat-action-row>
-      </form>
+      <app-mos-form></app-mos-form>
     </mat-expansion-panel>
-    <!-- </mat-card>
 
-  <mat-card color="accent"> -->
     <mat-expansion-panel [expanded]="!true" color="accent">
       <mat-expansion-panel-header>
         <mat-panel-title>
           ZTF Found Object Search
         </mat-panel-title>
-        <!-- <mat-panel-description>
-          </mat-panel-description> -->
       </mat-expansion-panel-header>
-
-      <form [formGroup]="form2" (ngSubmit)="onMOV()">
-        <mat-form-field>
-          <input matInput placeholder="Seeing Limit" formControlName="seeing" />
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput placeholder="Object Designation" formControlName="objid" />
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput placeholder="Image Sensitivity Limit" formControlName="maglimit" />
-        </mat-form-field>
-
-        <mat-action-row>
-          <button
-            mat-button
-            color="primary"
-            (click)="onMOV()"
-            [disabled]="true"
-            [mat-dialog-close]="true"
-          >
-            Submit
-          </button>
-        </mat-action-row>
-      </form>
+      <app-ztffos-form></app-ztffos-form>
     </mat-expansion-panel>
   </mat-card>
 </mat-accordion>

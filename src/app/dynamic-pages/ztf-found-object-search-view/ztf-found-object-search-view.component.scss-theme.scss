@@ -1,0 +1,29 @@
+@import '~@angular/material/theming';
+
+@mixin app-ztf-found-object-search-view-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  app-ztf-found-object-search-view {
+    // Make table transparent; color is provided by table
+    .table-wrapper {
+      background-color: rgba(mat-color($background, background), 0.9);
+      // background-color: rgba(mat-color($background, background), 1);
+
+      .data-table,
+      .paginator {
+        background-color: rgba(0, 0, 0, 0);
+        table,
+        thead,
+        tr,
+        th,
+        td,
+        tbody {
+          background-color: rgba(0, 0, 0, 0);
+        }
+      }
+    }
+  }
+}

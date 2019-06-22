@@ -22,6 +22,7 @@ export class SearchDialogComponent implements OnInit, AfterContentInit {
 
   // Time to smoothly expand to hidden panels' height
   transitionTime = 200;
+  transition = `height ${this.transitionTime}ms ease-out`;
   // Time to allow panels to collapse; required by bug https://github.com/angular/components/issues/13870
   calmingTime = 250;
 
@@ -30,8 +31,7 @@ export class SearchDialogComponent implements OnInit, AfterContentInit {
   makeAppear: any = {
     overflow: 'hidden',
     height: '0px',
-    transition: `height {this.transitionTime}ms`,
-    encapsulation: ViewEncapsulation.None
+    transition: this.transition
   };
 
   ngOnInit() {}
@@ -42,7 +42,8 @@ export class SearchDialogComponent implements OnInit, AfterContentInit {
       if (!!this.elementView) {
         const height = this.elementView.nativeElement.offsetHeight;
         this.makeAppear = {
-          height: height + 'px'
+          height: height + 'px',
+          transition: this.transition
         };
       }
 

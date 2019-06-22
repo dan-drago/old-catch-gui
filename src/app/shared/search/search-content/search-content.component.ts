@@ -9,7 +9,6 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class SearchContentComponent implements OnInit {
   form: FormGroup | undefined;
-  form2: FormGroup | undefined;
 
   constructor(private router: Router) {}
 
@@ -20,12 +19,6 @@ export class SearchContentComponent implements OnInit {
       }),
       start: new FormControl('', { validators: [this.validateStart] }),
       end: new FormControl('', { validators: [this.validateEnd] })
-    });
-
-    this.form2 = new FormGroup({
-      objid: new FormControl('', { validators: [] }),
-      seeing: new FormControl('', { validators: [] }),
-      maglimit: new FormControl('', { validators: [] })
     });
   }
 
