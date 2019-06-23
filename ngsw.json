@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1561236260544,
+  "timestamp": 1561269936465,
   "index": "https://dwd-umd.github.io/catch-gui/index.html",
   "assetGroups": [
     {
@@ -11,12 +11,12 @@
         "https://dwd-umd.github.io/catch-gui/es2015-polyfills.c5dd28b362270c767b34.js",
         "https://dwd-umd.github.io/catch-gui/favicon.ico",
         "https://dwd-umd.github.io/catch-gui/index.html",
-        "https://dwd-umd.github.io/catch-gui/main.e7ab10330f98ceadb86e.js",
+        "https://dwd-umd.github.io/catch-gui/main.4c0db10d7ba5347df54c.js",
         "https://dwd-umd.github.io/catch-gui/polyfills.d37cf3df0eb92a316744.js",
         "https://dwd-umd.github.io/catch-gui/runtime.26209474bfa8dc87a77c.js",
         "https://dwd-umd.github.io/catch-gui/scripts.572bbfa8c10df7ba1bef.js",
         "https://dwd-umd.github.io/catch-gui/styles.717fcaedb87388ac1332.css",
-        "https://dwd-umd.github.io/catch-gui/vendor.ee1d5e4d05c369378cd7.js"
+        "https://dwd-umd.github.io/catch-gui/vendor.04ada481fce555ace410.js"
       ],
       "patterns": []
     },
@@ -291,15 +291,15 @@
     "https://dwd-umd.github.io/catch-gui/assets/scripts/js9support.min.js": "81db3b258feb15d6fb62aa68dd26a23c65fd437b",
     "https://dwd-umd.github.io/catch-gui/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "https://dwd-umd.github.io/catch-gui/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://dwd-umd.github.io/catch-gui/index.html": "ac32fb6cca630a8b3f2f5928098e9fc52af39df1",
+    "https://dwd-umd.github.io/catch-gui/index.html": "a70f426b7ed991d04088a66df46d9b88e089adf5",
     "https://dwd-umd.github.io/catch-gui/logo0.3ca308774128c19cfa4c.png": "a20e18739e67c2e691e592eaddf187e19f39adc5",
-    "https://dwd-umd.github.io/catch-gui/main.e7ab10330f98ceadb86e.js": "22fde307ccd5d0135970c1c17f256dd6f0df6dbe",
+    "https://dwd-umd.github.io/catch-gui/main.4c0db10d7ba5347df54c.js": "500268a8d9651214456f0730fda460d2327d087a",
     "https://dwd-umd.github.io/catch-gui/polyfills.d37cf3df0eb92a316744.js": "2cf5115e17552ef0ee5167674ea21962877f540c",
     "https://dwd-umd.github.io/catch-gui/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "https://dwd-umd.github.io/catch-gui/scripts.572bbfa8c10df7ba1bef.js": "5a3c1ff2fb71e4b6d795e1641d0a5075f92c9f06",
     "https://dwd-umd.github.io/catch-gui/sky.748f7585ba8f4a9727c2.png": "e573a2acba627466214d3b221a97228a2e731222",
     "https://dwd-umd.github.io/catch-gui/styles.717fcaedb87388ac1332.css": "40eda50bac7f57c96fde60d47625596c5d97ff17",
-    "https://dwd-umd.github.io/catch-gui/vendor.ee1d5e4d05c369378cd7.js": "d9ae408ebaab2870b5eadfbc2b341ba8c49e6c9f"
+    "https://dwd-umd.github.io/catch-gui/vendor.04ada481fce555ace410.js": "d12ec87334ab87157bd994d019a5b5d139b231c4"
   },
   "navigationUrls": [
     {
