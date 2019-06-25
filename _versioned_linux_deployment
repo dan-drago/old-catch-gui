@@ -1,0 +1,66 @@
+#! /bin/bash
+
+###############################################
+# INIT PARAMS
+###############################################
+
+# Import env variables:
+if [ -f $PWD/.env ]; then
+  echo ">>> Loading env vars from .env"
+  eval $(cat .env | sed 's/^/export /')
+else
+  echo "No .env file found!!!"
+  return 1
+fi
+
+# Require an argument
+if [[ -z $1 ]]; then
+  echo "You must supply a version number/name for the build to be deployed!"
+  exit 1
+fi
+
+###############################################
+# CONFIRM VERSION NAME TO BE DEPLOYED
+###############################################
+clear
+echo "
+Are you sure you want to build and deploy the checked-out branch to:
+
+https://$LINUX_HOST/catch-gui/$1
+
+(Y/n)?
+"
+read decision
+if [[ $decision =~ n|no|NO|N ]]; then
+  echo "Cancelling."
+  exit 0
+fi
+
+###############################################
+# BUILD PAGES FOR REMOTE LINUX
+###############################################
+mkdir -p "dist-catch-gui/$1"
+source _build_prod "catch-gui/$1"
+
+###############################################
+# DEPLOY TO REMOTE LINUX
+###############################################
+if [[ $? == 0 ]]; then
+
+  echo "
+  ============================================================
+  DEPLOYING BUNDLES TO https://$LINUX_HOST/catch-gui/$1
+  ============================================================
+  "
+
+  # RSYNC BUILD TO LINUX DEPLOYMENT
+  cmd="rsync -avzd $PWD/dist-catch-gui/$1/ $LINUX_USER@$LINUX_HOST:$LINUX_CATCH_GUI_PATH/$1"
+  eval $cmd
+
+  echo "
+  ==========================================================
+  Done. Your page has been deployed to:
+  https://$LINUX_HOST/catch-gui/$1
+  ==========================================================
+  "
+fi

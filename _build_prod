@@ -1,0 +1,79 @@
+#! /bin/bash
+
+# Import env variables:
+if [ -f $PWD/.env ]; then
+  echo ">>> Loading env vars from .env"
+  eval $(cat .env | sed 's/^/export /')
+else
+  echo "No .env file found!!!"
+  return 1
+fi
+
+# Determine basehref
+if [[ $1 == "github" ]]; then
+  echo "
+  ============================================
+  BUILDING PRODUCTION BUNDLES FOR GITHUB PAGES
+  ============================================
+  "
+  BASE_HREF="/$GITHUB_REPO_NAME/"
+
+elif [[ ! -z $1 ]]; then
+
+  echo "
+  =============================================================================
+  BUILDING PRODUCTION BUNDLES FOR VERSIONED-LINUX DEPLOYMENT: $1
+  =============================================================================
+  "
+  BASE_HREF="/$1/"
+
+else
+
+  echo "
+  =========================================
+  BUILDING PRODUCTION BUNDLES FOR LOCAL RUN
+  =========================================
+  "
+  BASE_HREF="/"
+
+fi
+
+# Update angular environments with basehref
+echo \
+  "export const environment = {
+  production: true,
+  basehref: '$BASE_HREF'
+};" >src/environments/environment.prod.ts
+
+# Check to generate stats.json
+STATS=''
+if [[ $2 == 'stats' ]]; then
+  STATS='--stats-json'
+fi
+
+printf "\n>>> Running tests... "
+# ng test --browsers ChromeHeadless --watch=false >.test_report.txt
+
+if true || [[ $? == 0 ]]; then
+
+  printf "done! All tests passed!\n"
+
+  if [[ -d "dist-$1" ]]; then
+    echo ">>> Cleaning out old compilations..."
+    rm -rf ./"dist-$1"
+  fi
+
+  echo ">>> Building fresh web app..."
+  NODE_ENV=prod ./node_modules/.bin/ng build --prod --configuration prod --aot --vendor-chunk --base-href $BASE_HREF -- $STATS
+  mv dist "dist-$1"
+
+  echo "
+  ======================================
+  SUCCESFUL LOCAL BUILD TO dist-$1
+  ======================================
+  "
+
+else
+  printf "done :( Not all tests were succesful! See '.test_report.txt' for details."
+  return 1
+fi

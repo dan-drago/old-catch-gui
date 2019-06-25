@@ -5,14 +5,9 @@
     </a>
   </h1>
 
-  <<<<<<< HEAD
-  <h2 *ngIf="!data || !labels" class="main-heading">
-    Data Will Appear Here Very Soon!
-  </h2>
-  =======
   <div class="placeholder-heading" *ngIf="!data || !labels">
-    <h2>
-      <!-- <span>... Loading Data ...</span> -->
+    <h2 style="opacity: 0;">
+      <span>... Loading Data ...</span>
     </h2>
     <div class="spinner-wrapper-wrapper">
       <div class="spinner-wrapper">
@@ -20,7 +15,6 @@
       </div>
     </div>
   </div>
-  >>>>>>> 009-createBasicNeatDataView
 
   <h3 *ngIf="!!data && data!.data!.length === 0" class="main-heading">
     {{ 'No Data Found For objid=' + objid }}
