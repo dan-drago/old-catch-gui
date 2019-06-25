@@ -164,41 +164,72 @@ export class FitsDialogComponent implements AfterContentInit, OnDestroy {
       setTimeout(async () => {
         // Reset JS9 divs
         JS9.displays = [];
+
+        const d1 = new Date();
+        const n1 = d1.getMilliseconds();
+
         // Add div
         JS9.AddDivs(this.uid);
 
-        setTimeout(() => {
-          // Now that JS9, Menu & ColorBar are loaded:
-          // ... hide unwanted items in the menu bar:
-          $('#fileMenu' + this.uid + 'Menubar').css({ display: 'none' });
-          $('#editMenu' + this.uid + 'Menubar').css({ display: 'none' });
-          $('#helpMenu' + this.uid + 'Menubar').css({ display: 'none' });
-          $('#viewMacMenu' + this.uid + 'Menubar').css({ display: 'none' });
+        const d2 = new Date();
+        const n2 = d1.getMilliseconds();
 
-          // ... use their heights to determine their wrapper heights
-          this.js9MenuBarHeight = (this.js9MenuDiv!.nativeElement as HTMLDivElement).offsetHeight;
-          this.js9Height = (this.js9Div!.nativeElement as HTMLDivElement).offsetHeight;
-          this.js9ColorBarHeight = (this.js9ColorBarDiv!
-            .nativeElement as HTMLDivElement).offsetHeight;
+        console.log('n2 - n1', n2 - n1, this.uid);
 
-          // You need to adjust color-scale coloring BEFORE loading FITS image
-          this.adjustColorBarColoring();
+        // JS9.Preload('./fits/casa.fits[events][energy=3000:7000]', {
+        //   colormap: 'cool',
+        //   contrast: 5.9,
+        //   bias: 0.66,
+        //   scale: 'log',
+        //   xdim: 8192,
+        //   ydim: 8192,
+        //   bin: 4,
+        //   onload: function(im) {
+        //     JS9.SetZoom(2);
+        //     JS9.LoadRegions('casa/casa.reg');
+        //     JS9.Load('fits/ngc1316.fits', {
+        //       colormap: 'viridis',
+        //       scale: 'linear',
+        //       onload: function(im) {
+        //         JS9.SetScale('zscale', { display: im });
+        //         JS9.Load('fits/casa.fits');
+        //       }
+        //     });
+        //   }
+        // });
 
-          // Load external fits file to our div
-          JS9.Load(
-            this.passedData.fits_url,
-            {
-              scale: 'histeq',
-              colormap: 'cool',
-              onload: () => {
-                JS9.SetZoom('toFit', { display: this.uid });
-                this.isLoading = false;
-                resolve();
-              }
-            },
-            { display: this.uid }
-          );
-        }, 500);
+        // setTimeout(() => {
+        // Now that JS9, Menu & ColorBar are loaded:
+        // ... hide unwanted items in the menu bar:
+        $('#fileMenu' + this.uid + 'Menubar').css({ display: 'none' });
+        $('#editMenu' + this.uid + 'Menubar').css({ display: 'none' });
+        $('#helpMenu' + this.uid + 'Menubar').css({ display: 'none' });
+        $('#viewMacMenu' + this.uid + 'Menubar').css({ display: 'none' });
+
+        // ... use their heights to determine their wrapper heights
+        this.js9MenuBarHeight = (this.js9MenuDiv!.nativeElement as HTMLDivElement).offsetHeight;
+        this.js9Height = (this.js9Div!.nativeElement as HTMLDivElement).offsetHeight;
+        this.js9ColorBarHeight = (this.js9ColorBarDiv!
+          .nativeElement as HTMLDivElement).offsetHeight;
+
+        // You need to adjust color-scale coloring BEFORE loading FITS image
+        this.adjustColorBarColoring();
+
+        // Load external fits file to our div
+        JS9.Load(
+          this.passedData.fits_url,
+          {
+            scale: 'histeq',
+            colormap: 'cool',
+            onload: () => {
+              JS9.SetZoom('toFit', { display: this.uid });
+              this.isLoading = false;
+              resolve();
+            }
+          },
+          { display: this.uid }
+        );
+        // }, 0);
       }, 0);
     });
   }

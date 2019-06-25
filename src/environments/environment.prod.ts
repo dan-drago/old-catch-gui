@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  basehref: '/catch-gui/v1/'
+  basehref: '/catch-gui/vMag/'
 };
