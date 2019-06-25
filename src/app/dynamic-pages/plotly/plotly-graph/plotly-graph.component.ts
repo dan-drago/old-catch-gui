@@ -65,7 +65,7 @@ export class PlotlyGraphComponent implements OnInit, OnChanges {
           type,
           marker: {
             color: this.fontColor,
-            size: 3
+            size: isMiniMode ? 3 : 8
           },
           mode: 'markers'
         }
@@ -118,7 +118,13 @@ export class PlotlyGraphComponent implements OnInit, OnChanges {
           linewidth: 1
         },
         yaxis: {
-          title: !isMiniMode && !!meta && meta.yAxisTitle ? meta.yAxisTitle : '',
+          title:
+            !isMiniMode &&
+            !!meta &&
+            !!meta.yAxisTitle &&
+            (!yData || (!!yData && !!yData[0] && yData[0].toString().length < 6))
+              ? meta.yAxisTitle
+              : '',
           titlefont: {
             family: 'Courier New, monospace',
             size: 18,

@@ -1,0 +1,105 @@
+@import '../../../styles-variables';
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 25px 5%;
+}
+
+.data-page-wrapper {
+  width: 100%;
+}
+
+h1 a,
+.temp {
+  text-decoration: none;
+  color: white;
+}
+
+.col-button {
+  margin: 2px;
+  flex: 1 1 auto; // 'auto' - size buttons based on content
+}
+
+hr {
+  border-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.filter-field {
+  color: white;
+}
+
+.mat-form-field {
+  font-size: 14px;
+}
+
+.mat-row {
+  height: auto;
+}
+
+.mat-cell {
+  padding: 10px 10px 10px 0px;
+}
+
+//
+.data-gui {
+  //
+  width: 100%;
+  // overflow-x: scroll;
+}
+
+.table-cell {
+  // min-width: 40px;
+}
+
+.table-wrapper-wrapper {
+  overflow-x: scroll;
+
+  .table-wrapper {
+    display: inline-block;
+
+    table,
+    tr {
+      margin: auto auto;
+
+      td {
+        // min-width: 90px;
+        // background-color: red;
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+        margin-right: 15px;
+      }
+    }
+
+    .paginator {
+      width: 100%;
+    }
+  }
+}
+
+.plotly-wrapper {
+  position: relative;
+  width: 45px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 5px;
+}
+
+.left-align-table-cell-content {
+  white-space: nowrap;
+  position: absolute;
+  left: 0px;
+}
+
+.invisibly-size-table-cell {
+  white-space: nowrap;
+  opacity: 0;
+}

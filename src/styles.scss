@@ -27,6 +27,7 @@
 @import 'app/static-pages/contact/contact.component.scss-theme.scss';
 @import 'app/dynamic-pages/moving-object-search-view/moving-object-search-view.component.scss-theme.scss';
 @import 'app/dynamic-pages/ztf-found-object-search-view/ztf-found-object-search-view.component.scss-theme.scss';
+@import 'app/dynamic-pages/neat-search-view/neat-search-view.component.scss-theme.scss';
 
 // Implement custom component themes
 @mixin custom-components-theme($theme) {
@@ -36,6 +37,7 @@
   @include app-contact-component-theme($theme);
   @include app-moving-object-search-view-component-theme($theme);
   @include app-ztf-found-object-search-view-component-theme($theme);
+  @include app-neat-search-view-component-theme($theme);
 }
 
 .default-theme {

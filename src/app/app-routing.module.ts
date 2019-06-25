@@ -8,6 +8,7 @@ import { ContactComponent } from './static-pages/contact/contact.component';
 import { MovingObjectSearchViewComponent } from './dynamic-pages/moving-object-search-view/moving-object-search-view.component';
 import { SearchComponent } from './static-pages/search/search.component';
 import { ZtfFoundObjectSearchViewComponent } from './dynamic-pages/ztf-found-object-search-view/ztf-found-object-search-view.component';
+import { NeatSearchViewComponent } from './dynamic-pages/neat-search-view/neat-search-view.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,11 @@ const routes: Routes = [
   {
     path: 'ztffos',
     component: ZtfFoundObjectSearchViewComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'neat',
+    component: NeatSearchViewComponent,
     pathMatch: 'full'
   },
   {

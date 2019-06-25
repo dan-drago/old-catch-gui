@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { IMOSData, IZtfFosData } from './catch-data.models';
+import { IMOSData, IZtfFosData, INeatData } from './catch-data.models';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -39,6 +39,28 @@ export class CatchDataService {
 
   getZtfFosLabels(): Observable<any> {
     const url = ROOT_URL + 'ztf/found/labels';
+    return this.httpClient.get(url).pipe(
+      map((data: any) => {
+        return data;
+      })
+    );
+  }
+
+  getNeatData(): Observable<INeatData[]> {
+    // Hard code the link for now
+    const url =
+      'https://oort.astro.umd.edu/catch-dev/neat/caught/5bab9b6a-b905-42ad-8430-caec53c724b9/98';
+
+    return this.httpClient.get(url).pipe(
+      map((data: any) => {
+        return data.data;
+      })
+    );
+  }
+
+  getNeatLabels(): Observable<any> {
+    const url = 'https://oort.astro.umd.edu/catch-dev/neat/caught/labels';
+
     return this.httpClient.get(url).pipe(
       map((data: any) => {
         return data;

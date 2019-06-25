@@ -187,7 +187,7 @@ export class FitsDialogComponent implements AfterContentInit, OnDestroy {
           JS9.Load(
             this.passedData.fits_url,
             {
-              scale: 'log',
+              scale: 'histeq',
               colormap: 'cool',
               onload: () => {
                 JS9.SetZoom('toFit', { display: this.uid });

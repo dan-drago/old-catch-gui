@@ -1,0 +1,171 @@
+<div class="data-page-wrapper" [ngClass]="routeAnimationsElements">
+  <h1 class="main-heading">
+    <a class="temp" href="https://oort.astro.umd.edu/catch/docs">
+      NEAT Search
+    </a>
+  </h1>
+
+  <h2 *ngIf="!data || !labels" class="main-heading">
+    Data Will Appear Here Very Soon!
+  </h2>
+
+  <h3 *ngIf="!!data && data!.data!.length === 0" class="main-heading">
+    {{ 'No Data Found For objid=' + objid }}
+  </h3>
+
+  <div *ngIf="!!data && data!.data!.length > 0 && !!labels" class="data-gui">
+    <hr class="local-hr" />
+
+    <div class="buttons-wrapper" style="display: flex; width: 100%; flex-wrap: wrap;">
+      <button
+        *ngFor="let col of allColumns; let i = index"
+        mat-raised-button
+        class="col-button"
+        (click)="addRemoveColumns(col)"
+        [matTooltip]="labels[col] && labels[col].description"
+        [color]="shownCols.includes(col) ? 'primary' : 'background'"
+      >
+        {{ labels[col] && labels[col].label }}
+      </button>
+      <button
+        mat-raised-button
+        class="col-button"
+        (click)="isAllColumnsSelected ? resetSelectedColumns() : selectAllColumns()"
+        [color]="isAllColumnsSelected ? 'background' : 'accent'"
+      >
+        {{ isAllColumnsSelected ? 'RESET' : 'SELECT ALL' }}
+      </button>
+    </div>
+
+    <hr class="local-hr" />
+
+    <div
+      class="filter-row"
+      style="display: flex; justify-content: center; align-items: center; flex-wrap: nowrap;"
+      [ngClass]="routeAnimationsElements"
+    >
+      <div style="display: inline-block; flex: 1;">
+        <mat-form-field color="accent">
+          <input
+            matInput
+            type="text"
+            (keyup)="applyFilter($event.target.value)"
+            placeholder="Filter"
+            autocomplete="off"
+          />
+        </mat-form-field>
+        <button
+          (click)="exportCsv()"
+          mat-button
+          style="margin: 10px 20px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);"
+        >
+          DOWNLOAD CSV
+        </button>
+      </div>
+    </div>
+
+    <div class="table-wrapper-wrapper">
+      <div class="table-wrapper mat-elevation-z8 ">
+        <table mat-table matSort [dataSource]="data" class="data-table">
+          <ng-container [matColumnDef]="'imageUrl'">
+            <th class="table-cell" mat-header-cell *matHeaderCellDef mat-sort-header></th>
+            <td class="table-cell" mat-cell *matCellDef="let element">
+              <img (click)="onOpenImage($event, element)" [src]="iconUrl" />
+            </td>
+          </ng-container>
+
+          <ng-container [matColumnDef]="colvar" *ngFor="let colvar of shownCols; let j = index">
+            <th class="table-cell" mat-header-cell *matHeaderCellDef mat-sort-header>
+              <span style="white-space: nowrap;">
+                {{ labels[colvar] && labels[colvar].label }}
+              </span>
+
+              <span *ngIf="'raDec' === colvar" class="plotly-wrapper">
+                <app-plotly-graph
+                  isMiniMode="true"
+                  [payload]="{ xData: raData, yData: decData, type: 'scatter' }"
+                  (click)="onClickPlotly($event, 'raDec')"
+                ></app-plotly-graph>
+              </span>
+
+              <span *ngIf="'seeing' === colvar" class="plotly-wrapper">
+                <app-plotly-graph
+                  isMiniMode="true"
+                  [payload]="{ xData: seeingData, type: 'histogram' }"
+                  (click)="onClickPlotly($event, 'seeing')"
+                ></app-plotly-graph>
+              </span>
+
+              <span *ngIf="'delta' === colvar" class="plotly-wrapper">
+                <app-plotly-graph
+                  isMiniMode="true"
+                  [payload]="{ xData: deltaData, type: 'histogram' }"
+                  (click)="onClickPlotly($event, 'delta')"
+                ></app-plotly-graph>
+              </span>
+
+              <span *ngIf="'rh' === colvar" class="plotly-wrapper">
+                <app-plotly-graph
+                  isMiniMode="true"
+                  [payload]="{ xData: rhData, type: 'histogram' }"
+                  (click)="onClickPlotly($event, 'rh')"
+                ></app-plotly-graph>
+              </span>
+
+              <span *ngIf="'phase' === colvar" class="plotly-wrapper">
+                <app-plotly-graph
+                  isMiniMode="true"
+                  [payload]="{ xData: phaseData, type: 'histogram' }"
+                  (click)="onClickPlotly($event, 'phase')"
+                ></app-plotly-graph>
+              </span>
+
+              <span *ngIf="'tmtp' === colvar" class="plotly-wrapper">
+                <app-plotly-graph
+                  isMiniMode="true"
+                  [payload]="{ xData: tmtpData, type: 'histogram' }"
+                  (click)="onClickPlotly($event, 'tmtp')"
+                ></app-plotly-graph>
+              </span>
+
+              <span *ngIf="'trueanomaly' === colvar" class="plotly-wrapper">
+                <app-plotly-graph
+                  isMiniMode="true"
+                  [payload]="{ xData: trueanomalyData, type: 'histogram' }"
+                  (click)="onClickPlotly($event, 'trueanomaly')"
+                ></app-plotly-graph>
+              </span>
+            </th>
+            <td class="table-cell" mat-cell *matCellDef="let element" style="min-width: 10px;">
+              <div
+                style="
+                  position: relative;
+                  height: 100%;
+                  width: 100%;
+                "
+              >
+                <span
+                  *ngIf="!!element[colvar].length && element[colvar].includes('http'); else notShow"
+                >
+                  <a class="left-align-table-cell-content" [href]="element[colvar]">FITS IMG</a>
+                  <a class="invisibly-size-table-cell" [href]="element[colvar]">FITS IMG</a>
+                </span>
+
+                <ng-template #notShow>
+                  <span class="left-align-table-cell-content"> {{ element[colvar] }} </span>
+                  <span class="invisibly-size-table-cell"> {{ element[colvar] }} </span>
+                </ng-template>
+              </div>
+            </td>
+          </ng-container>
+
+          <tbody>
+            <tr mat-header-row *matHeaderRowDef="getAllCols()"></tr>
+            <tr mat-row *matRowDef="let row; columns: getAllCols()"></tr>
+          </tbody>
+        </table>
+        <mat-paginator class="paginator" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

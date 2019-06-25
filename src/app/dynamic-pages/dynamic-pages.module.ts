@@ -8,6 +8,7 @@ import { ZtfFoundObjectSearchViewComponent } from './ztf-found-object-search-vie
 import { FitsDialogComponent } from './fits-dialog/fits-dialog.component';
 import { PlotlyGraphComponent } from './plotly/plotly-graph/plotly-graph.component';
 import { PlotlyDialogComponent } from './plotly/plotly-dialog/plotly-dialog.component';
+import { NeatSearchViewComponent } from './neat-search-view/neat-search-view.component';
 
 // Plotly object made available from CDN
 declare var Plotly: any;
@@ -17,6 +18,7 @@ PlotlyModule.plotlyjs = Plotly;
   declarations: [
     MovingObjectSearchViewComponent,
     ZtfFoundObjectSearchViewComponent,
+    NeatSearchViewComponent,
     FitsDialogComponent,
     PlotlyGraphComponent,
     PlotlyDialogComponent
