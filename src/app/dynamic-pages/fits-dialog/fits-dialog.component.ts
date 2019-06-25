@@ -16,6 +16,7 @@ import { Subject } from 'rxjs';
 import { throttleTime } from 'rxjs/operators';
 import './userMenuSettings';
 import { LocalStorageService } from '@src/app/core/local-storage/local-storage.service';
+import { sleep } from '@src/app/utils/sleep';
 
 declare var JS9: any;
 declare var $: JQueryStatic;
@@ -219,11 +220,4 @@ export class FitsDialogComponent implements AfterContentInit, OnDestroy {
       await sleep(500);
     }
   }
-}
-
-/**
- * Useful for debugging
- */
-function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms));
 }

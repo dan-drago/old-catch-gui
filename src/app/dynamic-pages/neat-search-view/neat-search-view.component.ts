@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { FitsDialogComponent } from '../fits-dialog/fits-dialog.component';
 import { PlotlyDialogComponent } from '../plotly/plotly-dialog/plotly-dialog.component';
 import { IPlotlyPayLoad } from '../plotly/plotly.models';
+import { sleep } from '@src/app/utils/sleep';
 
 interface ILabel {
   [index: string]: { label: string; description: string };
@@ -116,7 +117,11 @@ export class NeatSearchViewComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {}
 
-  ngAfterViewInit() {
+  async ngAfterViewInit() {
+    // Give route-transitions time to settle
+    await sleep(1000);
+
+    // Begin loading in data from API
     this.catchData.getNeatData().subscribe(
       (data: INeatData[]) => {
         // Extract data for plotly graphs
@@ -160,6 +165,7 @@ export class NeatSearchViewComponent implements OnInit, AfterViewInit {
       }
     );
 
+    // Begin loading in labels for data
     this.catchData.getNeatLabels().subscribe(
       (data: ILabel) => {
         this.labels = data;
@@ -184,7 +190,7 @@ export class NeatSearchViewComponent implements OnInit, AfterViewInit {
       // Remove column
       const index = this.shownCols.indexOf(col);
       if (index !== -1) this.shownCols.splice(index, 1);
-    } else if (this.shownCols.length <= 1) {
+    } else if (this.shownCols.includes(col) && this.shownCols.length <= 1) {
       return;
     } else {
       // Add column and order shown cols by button order
