@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1561472774696,
+  "timestamp": 1561480349773,
   "index": "https://dwd-umd.github.io/catch-gui/index.html",
   "assetGroups": [
     {
@@ -11,7 +11,7 @@
         "https://dwd-umd.github.io/catch-gui/es2015-polyfills.c5dd28b362270c767b34.js",
         "https://dwd-umd.github.io/catch-gui/favicon.ico",
         "https://dwd-umd.github.io/catch-gui/index.html",
-        "https://dwd-umd.github.io/catch-gui/main.e9e8e8eb9a33da99a852.js",
+        "https://dwd-umd.github.io/catch-gui/main.3f7fb16125403e999d08.js",
         "https://dwd-umd.github.io/catch-gui/polyfills.d37cf3df0eb92a316744.js",
         "https://dwd-umd.github.io/catch-gui/runtime.26209474bfa8dc87a77c.js",
         "https://dwd-umd.github.io/catch-gui/scripts.572bbfa8c10df7ba1bef.js",
@@ -291,9 +291,9 @@
     "https://dwd-umd.github.io/catch-gui/assets/scripts/js9support.min.js": "81db3b258feb15d6fb62aa68dd26a23c65fd437b",
     "https://dwd-umd.github.io/catch-gui/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
     "https://dwd-umd.github.io/catch-gui/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://dwd-umd.github.io/catch-gui/index.html": "a2171733de3fdd08c65627f8a64adb736508d680",
+    "https://dwd-umd.github.io/catch-gui/index.html": "c50be5cd2a469e28a3941c1efce35ff3300b4997",
     "https://dwd-umd.github.io/catch-gui/logo0.3ca308774128c19cfa4c.png": "a20e18739e67c2e691e592eaddf187e19f39adc5",
-    "https://dwd-umd.github.io/catch-gui/main.e9e8e8eb9a33da99a852.js": "ca7b2d96dc2129ee18d3030a03ae8c5b43d252bf",
+    "https://dwd-umd.github.io/catch-gui/main.3f7fb16125403e999d08.js": "1a5542dfb19aab74f885abc9f648ea3666e54829",
     "https://dwd-umd.github.io/catch-gui/polyfills.d37cf3df0eb92a316744.js": "2cf5115e17552ef0ee5167674ea21962877f540c",
     "https://dwd-umd.github.io/catch-gui/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "https://dwd-umd.github.io/catch-gui/scripts.572bbfa8c10df7ba1bef.js": "5a3c1ff2fb71e4b6d795e1641d0a5075f92c9f06",
