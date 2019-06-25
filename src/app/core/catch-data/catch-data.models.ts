@@ -65,6 +65,7 @@ export interface IZtfFosData {
   pid: number;
   qid: number;
   ra: number;
+  raDec?: string;
   ra3sig: number;
   rcid: number;
   rdot: number;

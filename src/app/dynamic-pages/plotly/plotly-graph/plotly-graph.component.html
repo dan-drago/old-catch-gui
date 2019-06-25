@@ -1,0 +1,9 @@
+<plotly-plot
+  *ngIf="!!payload"
+  [ngClass]="{ hideDisplayBar: isMiniMode }"
+  [data]="plotlySettings.data"
+  [layout]="plotlySettings.layout"
+  [config]="plotlySettings.config"
+>
+</plotly-plot>
+<div *ngIf="isMiniMode" class="miniModeCovering"></div>

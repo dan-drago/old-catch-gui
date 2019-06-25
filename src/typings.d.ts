@@ -1,6 +1,6 @@
 declare module '*.md';
 
-// declare var JS9: any;
+declare module 'plotly.js/dist/plotly.js';
 declare namespace JS9 {
   //
 }

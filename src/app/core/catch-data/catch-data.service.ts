@@ -37,7 +37,7 @@ export class CatchDataService {
     );
   }
 
-  getZtfFosLabels(): Observable<IZtfFosData[]> {
+  getZtfFosLabels(): Observable<any> {
     const url = ROOT_URL + 'ztf/found/labels';
     return this.httpClient.get(url).pipe(
       map((data: any) => {
