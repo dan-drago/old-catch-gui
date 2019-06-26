@@ -65,6 +65,9 @@ export class FitsDialogComponent implements AfterContentInit, OnDestroy {
   @ViewChild('js9TripletRef')
   js9TripletDiv: ElementRef | undefined;
 
+  @ViewChild('temp')
+  temp: ElementRef | undefined;
+
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public passedData: { objid: string; fits_url: string },
@@ -151,54 +154,24 @@ export class FitsDialogComponent implements AfterContentInit, OnDestroy {
 
   async resetJS9Display() {
     return new Promise(resolve => {
+      //
       // Determine width of screen after which JS9 image won't grow AND keep image square
       // The 0.8 factor comes from the dialogs maxWidth=80vw
       const maxWidth = (window.innerHeight * this.js9WindowHeightFraction) / 0.8 + 48;
-
       if (window.innerWidth < maxWidth) {
         this.js9Width = 'calc(80vw - 48px)';
       } else {
         this.js9Width = this.js9WrapperHeight;
       }
 
+      // Begin JS9 load seuqence
       setTimeout(async () => {
         // Reset JS9 divs
         JS9.displays = [];
 
-        const d1 = new Date();
-        const n1 = d1.getMilliseconds();
-
-        // Add div
+        // Add div (is this synchronous?)
         JS9.AddDivs(this.uid);
 
-        const d2 = new Date();
-        const n2 = d1.getMilliseconds();
-
-        console.log('n2 - n1', n2 - n1, this.uid);
-
-        // JS9.Preload('./fits/casa.fits[events][energy=3000:7000]', {
-        //   colormap: 'cool',
-        //   contrast: 5.9,
-        //   bias: 0.66,
-        //   scale: 'log',
-        //   xdim: 8192,
-        //   ydim: 8192,
-        //   bin: 4,
-        //   onload: function(im) {
-        //     JS9.SetZoom(2);
-        //     JS9.LoadRegions('casa/casa.reg');
-        //     JS9.Load('fits/ngc1316.fits', {
-        //       colormap: 'viridis',
-        //       scale: 'linear',
-        //       onload: function(im) {
-        //         JS9.SetScale('zscale', { display: im });
-        //         JS9.Load('fits/casa.fits');
-        //       }
-        //     });
-        //   }
-        // });
-
-        // setTimeout(() => {
         // Now that JS9, Menu & ColorBar are loaded:
         // ... hide unwanted items in the menu bar:
         $('#fileMenu' + this.uid + 'Menubar').css({ display: 'none' });
@@ -206,7 +179,7 @@ export class FitsDialogComponent implements AfterContentInit, OnDestroy {
         $('#helpMenu' + this.uid + 'Menubar').css({ display: 'none' });
         $('#viewMacMenu' + this.uid + 'Menubar').css({ display: 'none' });
 
-        // ... use their heights to determine their wrapper heights
+        // ... and use their heights to determine their wrapper heights
         this.js9MenuBarHeight = (this.js9MenuDiv!.nativeElement as HTMLDivElement).offsetHeight;
         this.js9Height = (this.js9Div!.nativeElement as HTMLDivElement).offsetHeight;
         this.js9ColorBarHeight = (this.js9ColorBarDiv!
@@ -229,7 +202,6 @@ export class FitsDialogComponent implements AfterContentInit, OnDestroy {
           },
           { display: this.uid }
         );
-        // }, 0);
       }, 0);
     });
   }
@@ -237,16 +209,65 @@ export class FitsDialogComponent implements AfterContentInit, OnDestroy {
   async resetDivsAfterScreenResize() {
     this.isLoading = true;
 
-    if (!!this.js9Div) {
+    if (
+      //
+      !!this.js9Div &&
+      !!this.temp &&
+      this.js9ColorBarDiv
+    ) {
+      // Main JS9
       const el: HTMLDivElement = this.js9Div.nativeElement;
-      while (el.firstChild) el.removeChild(el.firstChild);
-
+      // console.log('el', el);
+      // console.log('--------');
+      while (el.firstChild) {
+        // console.log(el.firstChild);
+        el.removeChild(el.firstChild);
+      }
       const classList: DOMTokenList = el.classList;
       const toRemove = Array.from(classList).filter((item: string) => item !== 'JS9');
       if (toRemove.length) {
         classList.remove(...toRemove);
       }
 
+      // Color Bar
+      // const el2: HTMLDivElement = this.temp.nativeElement;
+      // const el3: HTMLDivElement = this.js9ColorBarDiv.nativeElement;
+
+      // while (el2.firstChild) {
+      //   console.log(el2.firstChild);
+      //   el2.removeChild(el2.firstChild);
+      // }
+
+      // el2.appendChild(el3);
+
+      // const classList2: DOMTokenList = el3.classList;
+      // const toRemove2 = Array.from(classList2).filter((item: string) => item !== 'JS9Colorbar');
+      // if (toRemove2.length) {
+      //   classList2.remove(...toRemove2);
+      // }
+      // while (el3.firstChild) {
+      //   console.log(el3);
+      //   console.log(el3.firstChild);
+      //   el3.removeChild(el3.firstChild);
+      // }
+
+      // el3.id = (el.id = this.uid = getSimpleUID()) + 'Colorbar';
+      // el3.id = this.uid + 'Colorbar';
+
+      // el3.parentNode!.removeChild(el3);
+      // console.log('el2', el2);
+      // console.log('--------');
+      // while (el2.firstChild) {
+      //   console.log(el2.firstChild);
+      //   el2.removeChild(el2.firstChild);
+      // }
+      // const classList2: DOMTokenList = el.classList;
+      // const toRemove2 = Array.from(classList2).filter((item: string) => item !== 'JS9');
+      // if (toRemove2.length) {
+      //   classList2.remove(...toRemove2);
+      // }
+
+      //
       el.id = this.uid = getSimpleUID();
       await sleep(500);
     }

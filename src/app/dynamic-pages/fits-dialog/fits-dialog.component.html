@@ -31,7 +31,7 @@
     >
       <div
         #js9Ref
-        [class]="JS9"
+        class="JS9"
         [id]="uid"
         [attr.data-width]="js9Width"
         [attr.data-height]="js9WrapperHeight"
@@ -45,13 +45,14 @@
       <div
         #js9MenuRef
         [id]="uid + 'Menubar'"
-        [class]="JS9Menubar"
+        class="JS9Menubar"
         [attr.data-width]="js9Width"
         data-style="mac"
         data-usermenus="true"
       ></div>
     </div>
     <div
+      #temp
       class="JS9ColorBar-wrapper"
       [ngClass]="{ opacityZero: !!isLoading, startTransitioning: !isLoading }"
       [ngStyle]="{
@@ -61,7 +62,7 @@
     >
       <div
         #js9ColorBarRef
-        [class]="JS9Colorbar"
+        class="JS9Colorbar xxx"
         style="background-color: rgba(0,0,0,0); line-height: 0px;"
         [id]="uid + 'Colorbar'"
         [attr.data-width]="js9Width"
