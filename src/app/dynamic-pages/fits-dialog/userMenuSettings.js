@@ -1,7 +1,5 @@
-// declare var JS9: any;
 
 JS9.globalOpts.userMenus = true;
-// JS9.globalOpts.userMenuBar = [];
 
 JS9.globalOpts.userMenuBar = [
   {
@@ -113,50 +111,4 @@ JS9.globalOpts.userMenuBar = [
       }
     ]
   },
-  // {
-  //   name: 'regions',
-  //   title: 'regions',
-  //   options: [
-  //     {
-  //       name: 'annulus',
-  //       cmd: 'AddRegions',
-  //       args: ['annulus']
-  //     },
-  //     {
-  //       name: 'box',
-  //       cmd: 'AddRegions',
-  //       args: ['box']
-  //     },
-  //     {
-  //       name: 'circle',
-  //       cmd: 'AddRegions',
-  //       args: ['circle']
-  //     },
-  //     {
-  //       name: 'ellipse',
-  //       cmd: 'AddRegions',
-  //       args: ['ellipse']
-  //     },
-  //     {
-  //       name: 'line',
-  //       cmd: 'AddRegions',
-  //       args: ['line']
-  //     },
-  //     {
-  //       name: 'point',
-  //       cmd: 'AddRegions',
-  //       args: ['point']
-  //     },
-  //     {
-  //       name: 'polygon',
-  //       cmd: 'AddRegions',
-  //       args: ['polygon']
-  //     },
-  //     {
-  //       name: 'text',
-  //       cmd: 'AddRegions',
-  //       args: ['text']
-  //     }
-  //   ]
-  // }
 ];

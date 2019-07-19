@@ -159,8 +159,12 @@
                 </span>
 
                 <ng-template #notShow>
-                  <span class="left-align-table-cell-content"> {{ element[colvar] }} </span>
-                  <span class="invisibly-size-table-cell"> {{ element[colvar] }} </span>
+                  <span class="left-align-table-cell-content">
+                    {{ formatCellEntry(element[colvar], labels[colvar]) }}
+                  </span>
+                  <span class="invisibly-size-table-cell">
+                    {{ formatCellEntry(element[colvar], labels[colvar]) }}
+                  </span>
                 </ng-template>
               </div>
             </td>

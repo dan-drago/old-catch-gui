@@ -13,7 +13,7 @@ if [[ $? == 0 ]]; then
 
   # Use `angular-cli-ghpages` package to do some deployment magic
   # N.b. this required setting `build.options.outputPath` to just `dist` in `angular.json`
-  ./node_modules/.bin/ngh --branch gh-pages
+  ./node_modules/.bin/ngh --branch gh-pages --dir dist-github
 
   echo "
   ==========================================================

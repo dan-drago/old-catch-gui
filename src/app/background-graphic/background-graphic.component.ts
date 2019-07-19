@@ -17,6 +17,6 @@ export class BackgroundGraphicComponent implements AfterViewInit {
   constructor() {}
 
   ngAfterViewInit() {
-    require('./starry-sky.js');
+    // require('./starry-sky.js');
   }
 }

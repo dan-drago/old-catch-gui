@@ -24,7 +24,11 @@ export class PlotlyGraphComponent implements OnInit, OnChanges {
   @Input()
   isMiniMode: boolean | undefined;
 
-  private fontColor: Color = 'rgba(255,255,255,0.6)';
+  private fontColor: Color = 'rgba(255,255,255,0.7)';
+  // private fontColor: Color = '#21BF9B';
+  private markerColor: Color = 'rgba(53,119,203,0.8)';
+  private markerLineColor: Color = 'rgba(103,169,253,1.0)';
+  private gridColor: Color = 'white';
   private bgColor: Color = 'rgba(255,255,255,0.2)';
   public plotlySettings: IPlotlySettings = this.setPlotly();
 
@@ -35,6 +39,8 @@ export class PlotlyGraphComponent implements OnInit, OnChanges {
     if (!this.localStorageService.isThemeDark()) {
       this.plotlySettings.data[0].marker!.color = 'rgba(0,0,0,0.5)';
       this.fontColor = 'rgba(0,0,0,0.6)';
+      // this.fontColor = '#7C4EFF';
+      // this.fontColor = 'red';
       this.bgColor = 'rgba(0,0,0,0.2)';
     }
     this.setPlotly();
@@ -64,8 +70,14 @@ export class PlotlyGraphComponent implements OnInit, OnChanges {
           text: tooltipInfo,
           type,
           marker: {
-            color: this.fontColor,
-            size: isMiniMode ? 3 : 8
+            color: isMiniMode
+              ? ((this.markerColor as any) as string).replace('0.8', '1.0')
+              : this.markerColor,
+            size: isMiniMode ? 3 : 18,
+            line: {
+              color: this.markerLineColor,
+              width: 1
+            }
           },
           mode: 'markers'
         }
@@ -98,23 +110,23 @@ export class PlotlyGraphComponent implements OnInit, OnChanges {
           autorange: true, // type === 'scatter',
           // range: !!xData ? [0, Math.ceil(Math.max.apply(null, xData))] : [0, 10],
           showgrid: !isMiniMode,
-          gridcolor: this.fontColor,
+          gridcolor: this.gridColor,
           gridwidth: 1,
           zeroline: !isMiniMode,
-          zerolinecolor: this.fontColor,
+          zerolinecolor: this.gridColor,
           zerolinewidth: 1,
           ticks: !!isMiniMode ? undefined : 'outside',
           tick0: 0,
           // dtick: 1, // Space between ticks; undefined for auto
           ticklen: 8,
           tickwidth: 1,
-          tickcolor: this.fontColor,
+          tickcolor: this.gridColor,
           tickfont: {
             size: 14,
             color: this.fontColor
           },
           showline: !isMiniMode,
-          linecolor: this.fontColor,
+          linecolor: this.gridColor,
           linewidth: 1
         },
         yaxis: {
@@ -140,17 +152,17 @@ export class PlotlyGraphComponent implements OnInit, OnChanges {
           dtick: undefined,
           ticklen: 8,
           tickwidth: 1,
-          tickcolor: this.fontColor,
+          tickcolor: this.gridColor,
           tickfont: {
             size: 14,
             color: this.fontColor
           },
           showline: !isMiniMode,
-          linecolor: this.fontColor,
+          linecolor: this.gridColor,
           linewidth: 1,
-          gridcolor: this.fontColor,
+          gridcolor: this.gridColor,
           gridwidth: 1,
-          zerolinecolor: this.fontColor,
+          zerolinecolor: this.gridColor,
           zerolinewidth: 1
         }
       }

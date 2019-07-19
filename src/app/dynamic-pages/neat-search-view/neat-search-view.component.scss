@@ -91,6 +91,8 @@ hr {
 }
 
 .table-wrapper-wrapper {
+  display: inline-block;
+  max-width: 100%;
   overflow-x: scroll;
 
   .table-wrapper {

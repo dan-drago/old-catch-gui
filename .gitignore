@@ -49,3 +49,6 @@ notes.md
 # System Files
 .DS_Store
 Thumbs.db
+
+# ignore environment.prod.ts since this is generated dynamically via _build_prod script
+src/environments/environment.prod.ts

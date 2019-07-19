@@ -10,9 +10,16 @@ import { PlotlyDialogComponent } from '../plotly/plotly-dialog/plotly-dialog.com
 import { IPlotlyPayLoad } from '../plotly/plotly.models';
 import { sleep } from '@src/app/utils/sleep';
 
-interface ILabel {
-  [index: string]: { label: string; description: string };
+interface ILabelEntry {
+  [index: string]: ILabel;
 }
+interface ILabel {
+  label: string;
+  description: string;
+  fractionSize: number;
+}
+
+declare var JS9: any;
 
 @Component({
   selector: 'app-neat-search-view',
@@ -25,7 +32,7 @@ export class NeatSearchViewComponent implements OnInit, AfterViewInit {
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
   objid: string;
-  labels: ILabel | undefined;
+  labels: ILabelEntry | undefined;
   rawData: INeatData[] | undefined;
   data: MatTableDataSource<INeatData> | undefined;
 
@@ -112,7 +119,7 @@ export class NeatSearchViewComponent implements OnInit, AfterViewInit {
         !!navigation.extras &&
         !!navigation.extras.state &&
         navigation.extras.state.objid) ||
-      '606';
+      'xxx';
   }
 
   ngOnInit(): void {}
@@ -122,11 +129,11 @@ export class NeatSearchViewComponent implements OnInit, AfterViewInit {
     await sleep(1000);
 
     // Begin loading in data from API
-    this.catchData.getNeatData().subscribe(
+    this.catchData.getNeatData(this.objid).subscribe(
       (data: INeatData[]) => {
         // Extract data for plotly graphs
         this.raData = data.map(el => el.ra);
-        this.decData = data.map(el => el.ra);
+        this.decData = data.map(el => el.dec);
         this.deltaData = data.map(el => el.delta);
         this.jdData = data.map(el => el.jd);
         this.rhData = data.map(el => el.rh);
@@ -167,11 +174,12 @@ export class NeatSearchViewComponent implements OnInit, AfterViewInit {
 
     // Begin loading in labels for data
     this.catchData.getNeatLabels().subscribe(
-      (data: ILabel) => {
+      (data: ILabelEntry) => {
         this.labels = data;
         this.labels.raDec = {
           label: 'RA/Dec',
-          description: this.labels.ra + ' / ' + this.labels.dec
+          description: this.labels.ra.description + ' / ' + this.labels.dec.description,
+          fractionSize: this.labels.ra.fractionSize
         };
       },
       err => {
@@ -235,12 +243,27 @@ export class NeatSearchViewComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
+      // Recommended here: https://github.com/ericmandel/js9/issues/60#issuecomment-506104711
+      JS9.CloseImage();
+
       if (result) {
         //
       } else {
         //
       }
     });
+  }
+
+  formatCellEntry(entry: any, labels: ILabel) {
+    if (typeof entry === 'number') return entry.toFixed(labels.fractionSize);
+    // Parse raDec, toFix, reassemble
+    if (entry.includes('/')) {
+      const [ra, dec] = entry
+        .split('/')
+        .map((el: string) => parseFloat(el.trim()).toFixed(labels.fractionSize));
+      return ra + ' / ' + dec;
+    }
+    return entry;
   }
 
   onClickPlotly(

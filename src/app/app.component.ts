@@ -1,4 +1,4 @@
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -29,7 +29,14 @@ export class AppComponent implements OnInit {
   isAppLoaded = false;
   isFooterHidden = false;
 
-  constructor(private localStorageService: LocalStorageService, private cd: ChangeDetectorRef) {
+  constructor(
+    //
+    // xxx
+    private localStorageService: LocalStorageService,
+    private cd: ChangeDetectorRef,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     // Stream changes to localStorage and pipe to theme$ observable
     this.localStorageState$ = this.localStorageService.getLocalStorageStream();
     this.theme$ = this.localStorageState$.pipe(
@@ -37,6 +44,16 @@ export class AppComponent implements OnInit {
     );
     // Hacky, but only way found to re-trigger observable AFTER component initialized
     setTimeout(() => this.localStorageService.refreshStateStream(), 0);
+
+    setTimeout(
+      () =>
+        this.route.queryParams.subscribe(params => {
+          if (!!Object.keys(params).length) {
+            if (!!params.dest && params.dest === 'neat') this.router.navigateByUrl('/neat');
+          }
+        }),
+      0
+    );
   }
 
   ngOnInit(): void {}

@@ -13,6 +13,7 @@ import { NeatSearchViewComponent } from './dynamic-pages/neat-search-view/neat-s
 const routes: Routes = [
   {
     path: '',
+    // component: NeatSearchViewComponent,
     component: HomeComponent,
     pathMatch: 'full'
   },
