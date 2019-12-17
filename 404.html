@@ -19,19 +19,26 @@
 <style type="text/css">
     body, html {
       height: 100%;
+      /* background: #111B3B; */
+      background-image: url(./assets/images/sky.png);
+      background-size: cover;
     }
     .app-loading {
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      /* background: #111B3B; */
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100%;
     }
 
     .app-loading .spinner {
-      height: 200px;
-      width: 200px;
+      height: 300px;
+      width: 300px;
       animation: rotate 2s linear infinite;
       transform-origin: center center;
       position: absolute;
@@ -42,12 +49,13 @@
       margin: auto;
     }
 
-    .app-loading .spinner .path {
+    .app-loading .spinner .path, .path {
       stroke-dasharray: 1, 200;
       stroke-dashoffset: 0;
       animation: dash 1.5s ease-in-out infinite;
       stroke-linecap: round;
-      stroke: #ddd;
+      /* stroke: #ddd; */
+      stroke: #1088F6;
     }
 
     @keyframes rotate {
@@ -71,18 +79,26 @@
       }
     }
   </style>
-<link rel="stylesheet" href="styles.290d1096f60f681b235b.css"></head>
+<link rel="stylesheet" href="styles.76d041e4c972b5509fd8.css"></head>
 <body>
-  <app-root>
+
+
+
+  <app-entry-root>
 
       <div class="app-loading">
-          <div class="logo">
-          <svg class="spinner" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
-          </svg>
-        </div>
+      </div>
+  </app-entry-root>
 
-  </app-root>
+  <div id="appLoadingDivId" class="app-loading">
+    <div class="logo">
+    <svg style="background: rgba(0,0,0,0);" class="spinner" viewBox="25 25 50 50">
+      <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+    </svg>
+  </div>
+
+
   <noscript>Please enable JavaScript to continue using this application.</noscript>
-<script type="text/javascript" src="runtime.26209474bfa8dc87a77c.js"></script><script type="text/javascript" src="es2015-polyfills.c5dd28b362270c767b34.js" nomodule></script><script type="text/javascript" src="polyfills.d37cf3df0eb92a316744.js"></script><script type="text/javascript" src="scripts.06f7b443f8202cdd0168.js"></script><script type="text/javascript" src="vendor.a436ff2833b3e016b008.js"></script><script type="text/javascript" src="main.e24bf60d6cad35446575.js"></script></body>
+
+<script type="text/javascript" src="runtime.26209474bfa8dc87a77c.js"></script><script type="text/javascript" src="es2015-polyfills.c5dd28b362270c767b34.js" nomodule></script><script type="text/javascript" src="polyfills.d37cf3df0eb92a316744.js"></script><script type="text/javascript" src="scripts.06f7b443f8202cdd0168.js"></script><script type="text/javascript" src="vendor.b99835f342b9c843735f.js"></script><script type="text/javascript" src="main.c4f16750cfe5959e8a65.js"></script></body>
 </html>
